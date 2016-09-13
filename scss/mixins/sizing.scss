@@ -1,0 +1,9 @@
+@mixin sizing($prop, $min, $max, $step: 0.5) {
+  $val: $min;
+  @while $val <= $max {
+    &-#{str-replace($val + "", ".", "x")} {
+      #{$prop}: #{$val}rem;
+    }
+    $val: $val + $step;
+  }
+}

@@ -1,0 +1,47 @@
+@mixin position($prop) {
+  position: $prop;
+
+  &-t {
+    top: 0;
+    position: $prop;
+
+    &-l {
+      left: 0;
+      top: 0;
+      position: $prop;
+    }
+
+    &-r {
+      right: 0;
+      top: 0;
+      position: $prop;
+    }
+  }
+
+  &-b {
+    bottom: 0;
+    position: $prop;
+
+    &-l {
+      left: 0;
+      bottom: 0;
+      position: $prop;
+    }
+
+    &-r {
+      right: 0;
+      bottom: 0;
+      position: $prop;
+    }
+  }
+
+  &-l {
+    left: 0;
+    position: $prop;
+  }
+
+  &-r {
+    right: 0;
+    position: $prop;
+  }
+}

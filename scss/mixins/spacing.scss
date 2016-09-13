@@ -1,0 +1,33 @@
+@mixin space($prop, $val) {
+  &-#{getDir($prop)} {
+    &-#{str-replace($val + "", ".", "x")} {
+      #{$prop}: #{$val}rem;
+
+      &-t {
+        #{$prop}-top: #{$val}rem;
+      }
+
+      &-b {
+        #{$prop}-bottom: #{$val}rem;
+      }
+
+      &-l {
+        #{$prop}-left: #{$val}rem;
+      }
+
+      &-r {
+        #{$prop}-right: #{$val}rem;
+      }
+
+      &-v {
+        #{$prop}-top:    #{$val}rem;
+        #{$prop}-bottom: #{$val}rem;
+      }
+
+      &-h {
+        #{$prop}-left:  #{$val}rem;
+        #{$prop}-right: #{$val}rem;
+      }
+    }
+  }
+}

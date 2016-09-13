@@ -1,0 +1,40 @@
+@mixin placeholder($color, $opacity: 1) {
+  &::placeholder {
+    color: $color;
+    opacity: $opacity !important;
+  }
+}
+
+@mixin respond-to($val, $query) {
+  @media screen and ($val: $query) {
+    @content;
+  }
+}
+
+@mixin font-family($family: Lato) {
+  font-family: $family, sans-serif;
+}
+
+@mixin first() {
+  &:first-child {
+    @content;
+  }
+}
+
+@mixin last() {
+  &:last-child {
+    @content;
+  }
+}
+
+@mixin not-first() {
+  &:not(:first-child) {
+    @content;
+  }
+}
+
+@mixin not-last() {
+  &:not(:last-child) {
+    @content;
+  }
+}
