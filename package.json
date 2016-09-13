@@ -1,0 +1,17 @@
+{
+  "name": "stylebox",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aristovn/stylebox.git"
+  },
+  "author": "Nikita Aristov <nikita.aristov@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aristovn/stylebox/issues"
+  },
+  "homepage": "https://github.com/aristovn/stylebox#readme"
+}

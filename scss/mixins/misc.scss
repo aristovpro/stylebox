@@ -11,7 +11,7 @@
   }
 }
 
-@mixin font-family($family: Lato) {
+@mixin font-family($family) {
   font-family: $family, sans-serif;
 }
 
