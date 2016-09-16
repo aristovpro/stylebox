@@ -1,0 +1,13 @@
+@mixin color($name, $color) {
+  .color-#{$name},
+  .color-hover-#{$name}:hover,
+  .color-links-#{$name} a,
+  .color-links-hover-#{$name} a:hover {
+    color: $color;
+  }
+
+  .bg-#{$name},
+  .bg-hover-#{$name}:hover {
+    background-color: $color;
+  }
+}
