@@ -1,33 +1,55 @@
 @mixin space($prop, $val) {
   &-#{getDir($prop)} {
     &-#{str-replace($val + "", ".", "x")} {
-      #{$prop}: #{$val}rem;
+      @include space-prop {
+        #{$prop}: #{$val}rem;
+      }
 
       &-t {
-        #{$prop}-top: #{$val}rem;
+        @include space-prop {
+          #{$prop}-top: #{$val}rem;
+        }
       }
 
       &-b {
-        #{$prop}-bottom: #{$val}rem;
+        @include space-prop {
+          #{$prop}-bottom: #{$val}rem;
+        }
       }
 
       &-l {
-        #{$prop}-left: #{$val}rem;
+        @include space-prop {
+          #{$prop}-left: #{$val}rem;
+        }
       }
 
       &-r {
-        #{$prop}-right: #{$val}rem;
+        @include space-prop {
+          #{$prop}-right: #{$val}rem;
+        }
       }
 
       &-v {
-        #{$prop}-top:    #{$val}rem;
-        #{$prop}-bottom: #{$val}rem;
+        @include space-prop {
+          #{$prop}-top:    #{$val}rem;
+          #{$prop}-bottom: #{$val}rem;
+        }
       }
 
       &-h {
-        #{$prop}-left:  #{$val}rem;
-        #{$prop}-right: #{$val}rem;
+        @include space-prop {
+          #{$prop}-left:  #{$val}rem;
+          #{$prop}-right: #{$val}rem;
+        }
       }
     }
+  }
+}
+
+@mixin space-prop {
+  &,
+  &-child > *,
+  &-child-not_first > :not(:first-child) {
+    @content;
   }
 }
