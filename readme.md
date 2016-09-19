@@ -17,4 +17,23 @@ Class name | Property
 `.space-out-1-h`                 | `{ margin: 0 1rem }`
 `.space-out-1-l-child`           | `> * { margin-left: 1rem }`
 `.space-out-1-l-child-not_first` | `> :not(:first-child) { margin-left: 1rem }`
+`.space-in-1`                    | `{ padding: 1rem }`
 ...                              | ...
+
+## Shadows
+
+### Connecting
+```scss
+@include shadow('black', #000);
+@include shadow('black', #000, inset);
+```
+### Usage
+```scss
+  .shadow-[direction]-[color]-[side]
+```
+
+Option | Required | Values
+-------|----------|-------
+Direction | `true`  | in / out
+Color     | `true`  | Color name from first mixin argument
+Side      | `false` | t (top) / r (right) / b (bottom) / l (left) / v (vertical) / h (horizontal)
