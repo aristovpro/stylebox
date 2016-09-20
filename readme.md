@@ -1,11 +1,14 @@
 ## Spacing
 
 ### Connecting
+
 ```scss
 @include space(margin,    1);
 @include space(padding, 0.5);
 ```
+
 ### Usage
+
 Class name | Property
 -----------|-----------
 `.space-out-1`                      | `{ margin: 1rem }`
@@ -23,11 +26,14 @@ Class name | Property
 ## Shadows
 
 ### Connecting
+
 ```scss
 @include shadow('black', #000);
 @include shadow('black', #000, inset);
 ```
+
 ### Usage
+
 ```scss
   .shadow-[direction]-[color]-[side]
 ```
