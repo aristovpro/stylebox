@@ -48,8 +48,8 @@
 
 @mixin space-prop {
   &,
-  &-child > *,
-  &-child-not_first > :not(:first-child) {
+  &-children > *,
+  &-children-not_first > :not(:first-child) {
     @content;
   }
 }
