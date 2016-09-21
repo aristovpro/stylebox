@@ -89,7 +89,7 @@ determines button style and behavior
   @include button--disabled(null, #000) {
     box-shadow: 0 0 0 1px #F00;
   }
-  @include button--disabled(#000, null, null, #FFF);
+  @include button--icon(#000, null, null, #FFF);
 }
 @include button-size('m', 0.5rem 1rem);
 @include button-reduction('m', 'orange');
