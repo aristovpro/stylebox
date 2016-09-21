@@ -25,6 +25,7 @@
   &.hover {
     background: $background;
     color: $color;
+    @content;
   }
 }
 
@@ -47,9 +48,38 @@
   }
 }
 
+@mixin button--icon($normal, $hover, $active, $disabled) {
+  .icon {
+    color: $normal;
+    @content;
+  }
+
+  &:hover,
+  &.hover {
+    .icon {
+      color: $hover;
+    }
+  }
+
+  &:active,
+  &.active {
+    .icon {
+      color: $active;
+    }
+  }
+
+  &[disabled],
+  &.disabled {
+    .icon {
+      color: $disabled;
+    }
+  }
+}
+
 @mixin button-reduction($size, $name) {
   .btn-#{$size}-#{$name} {
     @extend .button-size-#{$size};
     @extend .button-#{$name};
   }
 }
+
