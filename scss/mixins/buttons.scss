@@ -1,8 +1,9 @@
 @mixin button($name, $background, $color, $radius) {
   .button {
     display: inline-flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    text-align: center;
 
     &-#{$name} {
       background: $background;
