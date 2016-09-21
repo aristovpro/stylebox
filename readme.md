@@ -59,6 +59,9 @@ Side      | `false` | t (top) / r (right) / b (bottom) / l (left) / v (vertical)
   @include button--disabled($background, $color) {
     ...
   }
+  @include button--icon($normal, $hover, $active, $disabled) {
+    ...
+  }
 }
 @include button-size($size, $padding) {
   ...
@@ -68,7 +71,7 @@ Side      | `false` | t (top) / r (right) / b (bottom) / l (left) / v (vertical)
 
 `button` — base mixin
 
-`button--hover`, `button--active`, `button--disabled` — optional mixins,
+`button--hover`, `button--active`, `button--disabled`, `button--icon` — optional mixins,
 determines button style and behavior
 
 `button-size` — defines button size variant
@@ -86,6 +89,7 @@ determines button style and behavior
   @include button--disabled(null, #000) {
     box-shadow: 0 0 0 1px #F00;
   }
+  @include button--disabled(#000, null, null, #FFF);
 }
 @include button-size('m', 0.5rem 1rem);
 @include button-reduction('m', 'orange');
