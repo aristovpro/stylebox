@@ -1,0 +1,55 @@
+@mixin button($name, $background, $color, $radius) {
+  .button {
+    display: inline-flex;
+    cursor: pointer;
+    text-align: center;
+
+    &-#{$name} {
+      background: $background;
+      border-radius: $radius;
+      color: $color;
+      @content;
+    }
+  }
+}
+
+@mixin button-size($name, $padding) {
+  .button-size-#{$name} {
+    padding: $padding;
+    @content;
+  }
+}
+
+@mixin button--hover($background, $color) {
+  &:hover,
+  &.hover {
+    background: $background;
+    color: $color;
+  }
+}
+
+@mixin button--active($background, $color) {
+  &:active,
+  &.active {
+    background: $background;
+    color: $color;
+    @content;
+  }
+}
+
+@mixin button--disabled($background, $color) {
+  &[disabled],
+  &.disabled {
+    background: $background;
+    color: $color;
+    cursor: not-allowed;
+    @content;
+  }
+}
+
+@mixin button-reduction($size, $name) {
+  .btn-#{$size}-#{$name} {
+    @extend .button-size-#{$size};
+    @extend .button-#{$name};
+  }
+}
