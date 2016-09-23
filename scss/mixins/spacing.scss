@@ -40,11 +40,11 @@ $property: margin, padding;
 
       &-children {
         &-#{str-replace($val + "", ".", "x")} {
-          &-v:not(:first-child) {
+          &-v > :not(:first-child) {
             margin-top: #{$val}rem;
           }
 
-          &-h:not(:first-child) {
+          &-h > :not(:first-child) {
             margin-left: #{$val}rem;
           }
         }
