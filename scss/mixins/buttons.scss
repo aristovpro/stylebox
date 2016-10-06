@@ -1,16 +1,19 @@
 @mixin button($name, $background, $color, $radius) {
   .button {
+    cursor: pointer;
+  }
+
+  .button:not(button) {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
+  }
 
-    &-#{$name} {
-      background: $background;
-      border-radius: $radius;
-      color: $color;
-      @content;
-    }
+  .button-#{$name} {
+    background: $background;
+    border-radius: $radius;
+    color: $color;
+    @content;
   }
 }
 
@@ -84,4 +87,3 @@
     @extend .button-#{$name};
   }
 }
-
