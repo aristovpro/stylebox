@@ -9,13 +9,13 @@
 ### Usage
 
 ```scss
-  .space-[direction]-[value]-[side]
-  .space-children-[value]-[side]
+  .margin-[value]-[side]
+  .padding-[value]-[side]
+  .children-margin-[value]-[side]
 ```
 
 Option | Required | Values
 -------|----------|-------
-Direction       | `true`  | in / out
 Value           | `false` | Value of margin or padding (rem)
 Side            | `false` | t (top) / r (right) / b (bottom) / l (left) / v (vertical) / h (horizontal)
 Side (children) | `true`  | v (vertical) / h (horizontal)
