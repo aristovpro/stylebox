@@ -3,53 +3,52 @@ $property: margin, padding;
 @mixin space($min, $max, $step: 0.25) {
   $val: $min;
   @while $val <= $max {
-    .space {
-      @each $prop in $property {
-        &-#{getDir($prop)} {
-          &-#{str-replace($val + "", ".", "x")} {
-            #{$prop}: #{$val}rem;
+    @each $prop in $property {
+      #{get-selector($prop, $val)} {
+        #{$prop}: #{$val}rem;
 
-            &-t {
-              #{$prop}-top: #{$val}rem;
-            }
+        &-t {
+          #{$prop}-top: #{$val}rem;
+        }
 
-            &-b {
-              #{$prop}-bottom: #{$val}rem;
-            }
+        &-b {
+          #{$prop}-bottom: #{$val}rem;
+        }
 
-            &-l {
-              #{$prop}-left: #{$val}rem;
-            }
+        &-l {
+          #{$prop}-left: #{$val}rem;
+        }
 
-            &-r {
-              #{$prop}-right: #{$val}rem;
-            }
+        &-r {
+          #{$prop}-right: #{$val}rem;
+        }
 
-            &-v {
-              #{$prop}-top:    #{$val}rem;
-              #{$prop}-bottom: #{$val}rem;
-            }
+        &-v {
+          #{$prop}-top:    #{$val}rem;
+          #{$prop}-bottom: #{$val}rem;
+        }
 
-            &-h {
-              #{$prop}-left:  #{$val}rem;
-              #{$prop}-right: #{$val}rem;
-            }
-          }
+        &-h {
+          #{$prop}-left:  #{$val}rem;
+          #{$prop}-right: #{$val}rem;
         }
       }
 
-      &-children {
-        &-#{str-replace($val + "", ".", "x")} {
-          &-v > :not(:first-child) {
-            margin-top: #{$val}rem;
-          }
+      #{get-selector($prop, $val, 'children-')} {
+        &-v > :not(:first-child) {
+          margin-top: #{$val}rem;
+        }
 
-          &-h > :not(:first-child) {
-            margin-left: #{$val}rem;
-          }
+        &-h > :not(:first-child) {
+          margin-left: #{$val}rem;
         }
       }
     }
+
     $val: $val + $step;
   }
+}
+
+@function get-selector($prop, $val, $prefix: '') {
+  @return '.#{$prefix}#{$prop}-#{str-replace($val + "", ".", "x")}';
 }

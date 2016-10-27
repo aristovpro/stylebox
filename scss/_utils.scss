@@ -15,7 +15,7 @@
 }
 
 @function getDir($prop) {
-  @if $prop == 'inset' or $prop == 'padding' {
+  @if $prop == 'inset' {
     @return 'in';
   }
   @return 'out';
