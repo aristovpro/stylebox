@@ -44,4 +44,19 @@
     right: 0;
     position: $prop;
   }
+
+  &-fit {
+    position: $prop;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  &-center {
+    position: $prop;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+  }
 }
