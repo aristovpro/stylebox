@@ -50,7 +50,7 @@ $cross: start, center, end, stretch;
   @return $selector;
 }
 
-@mixin flex-containers() {
+@mixin flex-containers {
   // Base directions.
   #{each-container()}        {display: flex}
   #{each-for-direction(row)} {flex-direction: row}
@@ -74,7 +74,7 @@ $cross: start, center, end, stretch;
   .flex-nowrap {flex-wrap: nowrap}
 }
 
-@mixin flex-childs() {
+@mixin flex-children {
   // .flex-N {flex: N} where 1 <= N <= 12
   $i: 1;
   @while $i <= 12 {
