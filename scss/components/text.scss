@@ -1,0 +1,60 @@
+/**
+ * text-align
+ */
+
+.align-left    { text-align: left }
+.align-right   { text-align: right }
+.align-center  { text-align: center }
+.align-justify { text-align: justify }
+
+/**
+ * vertical-align
+ */
+
+.valign-top         { vertical-align: top }
+.valign-middle      { vertical-align: middle }
+.valign-bottom      { vertical-align: bottom }
+.valign-baseline    { vertical-align: baseline }
+.valign-sub         { vertical-align: sub }
+.valign-super       { vertical-align: super }
+.valign-text-top    { vertical-align: text-top }
+.valign-text-bottom { vertical-align: text-bottom }
+
+/**
+ * text-decoration
+ */
+
+.txt-decoration-none         { text-decoration: none }
+.txt-decoration-overline     { text-decoration: overline }
+.txt-decoration-underline    { text-decoration: underline }
+.txt-decoration-line-through { text-decoration: line-through }
+.txt-decoration-blink        { text-decoration: blink }
+
+/**
+ * text-transform
+ */
+
+.txt-transform-none       { text-transform: none }
+.txt-transform-uppercase  { text-transform: uppercase }
+.txt-transform-lowercase  { text-transform: lowercase }
+.txt-transform-capitalize { text-transform: capitalize }
+
+/**
+ * white-space
+ */
+
+.wspace-pre      { white-space: pre }
+.wspace-normal   { white-space: normal }
+.wspace-nowrap   { white-space: nowrap }
+.wspace-pre-wrap { white-space: pre-wrap }
+.wspace-pre-line { white-space: pre-line }
+
+/**
+ * text-overflow
+ */
+
+.text-ellipsis {
+  text-overflow: ellipsis;
+  @extend .wspace-nowrap;
+  @extend .overflow-hidden;
+}

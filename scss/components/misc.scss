@@ -1,0 +1,17 @@
+/**
+ * flex
+ */
+
+.flex-wrap { flex-wrap: wrap }
+
+/**
+ * geometry
+ */
+
+.square::before {
+  content: '';
+  display: block;
+  padding-bottom: 100%;
+}
+
+.circle { border-radius: 50% }

@@ -1,7 +1,10 @@
 @import './utils';
 
-@import './components/layout.scss';
-@import './components/typography.scss';
+@import './components/visual-formatting.scss';
+@import './components/box-size.scss';
+@import './components/font.scss';
+@import './components/text.scss';
+@import './components/misc.scss';
 
 @import './mixins/layout';
 @import './mixins/spacing';
