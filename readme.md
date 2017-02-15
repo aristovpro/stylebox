@@ -1,6 +1,6 @@
 ## Spacing
 
-### Connecting
+### Configuration
 
 ```scss
 @include space($min, $max, $step: 0.25);
@@ -22,7 +22,7 @@ Side (children) | `true`  | v (vertical) / h (horizontal)
 
 ## Shadows
 
-### Connecting
+### Configuration
 
 ```scss
 @include shadow('black', #000);
@@ -43,7 +43,7 @@ Side      | `false` | t (top) / r (right) / b (bottom) / l (left) / v (vertical)
 
 ## Buttons
 
-### Connecting
+### Configuration
 
 ```scss
 @include button($name, $background, $color, $radius) {
