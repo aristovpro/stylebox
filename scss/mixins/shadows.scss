@@ -1,5 +1,5 @@
 @mixin shadow($name, $color, $inset:null) {
-  &-#{getDir($inset)} {
+  .shadow-#{getDir($inset)} {
     &-#{$name} {
       box-shadow: #{getTopShadow($inset, $color)},
                   #{getBottomShadow($inset, $color)},
