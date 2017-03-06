@@ -2,10 +2,10 @@
  * text-align
  */
 
-.align-left    { text-align: left }
-.align-right   { text-align: right }
-.align-center  { text-align: center }
-.align-justify { text-align: justify }
+.text-left    { text-align: left }
+.text-right   { text-align: right }
+.text-center  { text-align: center }
+.text-justify { text-align: justify }
 
 /**
  * vertical-align
@@ -24,20 +24,20 @@
  * text-decoration
  */
 
-.txt-decoration-none         { text-decoration: none }
-.txt-decoration-overline     { text-decoration: overline }
-.txt-decoration-underline    { text-decoration: underline }
-.txt-decoration-line-through { text-decoration: line-through }
-.txt-decoration-blink        { text-decoration: blink }
+.text-decoration-none { text-decoration: none }
+.text-overline        { text-decoration: overline }
+.text-underline       { text-decoration: underline }
+.text-line-through    { text-decoration: line-through }
+.text-blink           { text-decoration: blink }
 
 /**
  * text-transform
  */
 
-.txt-transform-none       { text-transform: none }
-.txt-transform-uppercase  { text-transform: uppercase }
-.txt-transform-lowercase  { text-transform: lowercase }
-.txt-transform-capitalize { text-transform: capitalize }
+.text-transform-none { text-transform: none }
+.text-uppercase      { text-transform: uppercase }
+.text-lowercase      { text-transform: lowercase }
+.text-capitalize     { text-transform: capitalize }
 
 /**
  * white-space

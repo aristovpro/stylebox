@@ -1,8 +1,8 @@
 @mixin color($name, $color) {
-  .color-#{$name},
-  .color-hover-#{$name}:hover,
-  .color-links-#{$name} a,
-  .color-links-hover-#{$name} a:hover {
+  .fg-#{$name},
+  .fg-hover-#{$name}:hover,
+  .fg-links-#{$name} a,
+  .fg-links-hover-#{$name} a:hover {
     color: $color;
   }
 

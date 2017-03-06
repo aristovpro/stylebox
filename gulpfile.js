@@ -3,6 +3,7 @@
 /* ***************************** Dependencies ********************************/
 
 const $ = require('gulp-load-plugins')()
+const bs = require('browser-sync')
 const del = require('del')
 const gulp = require('gulp')
 const statilConfig = require('./statil')
@@ -14,6 +15,7 @@ const src = {
   docStyles: 'docs/styles/**/*.scss',
   docStylesMain: 'docs/styles/docs.scss',
   docFonts: 'node_modules/font-awesome/fonts/**/*',
+  libStylesDir: 'scss',
 }
 
 const out = {
@@ -61,7 +63,7 @@ gulp.task('docs:styles:build', () => (
 ))
 
 gulp.task('docs:styles:watch', () => {
-  $.watch(src.docStyles, gulp.series('docs:styles:build'))
+  $.watch([src.docStyles, src.libStylesDir], gulp.series('docs:styles:build'))
 })
 
 /* -------------------------------- Fonts -----------------------------------*/
@@ -73,6 +75,30 @@ gulp.task('docs:fonts:build', () => (
 gulp.task('docs:fonts:watch', () => {
   $.watch(src.docFonts, gulp.series('docs:fonts:build'))
 })
+
+/* -------------------------------- Server ----------------------------------*/
+
+gulp.task('docs:server', () => (
+  bs.init({
+    startPath: '/stylebox/',
+    server: {
+      baseDir: 'gh-pages',
+      middleware: [
+        (req, res, next) => {
+          req.url = req.url.replace(/^\/stylebox\//, '').replace(/^[/]*/, '/')
+          next()
+        }
+      ]
+    },
+    port: 36463,
+    files: 'gh-pages',
+    open: false,
+    online: false,
+    ui: false,
+    ghostMode: false,
+    notify: false
+  })
+))
 
 /* -------------------------------- Default ---------------------------------*/
 
@@ -95,5 +121,5 @@ gulp.task('docs:build', gulp.series(
 
 gulp.task('default', gulp.series(
   'docs:build',
-  'docs:watch'
+  gulp.parallel('docs:watch', 'docs:server')
 ))

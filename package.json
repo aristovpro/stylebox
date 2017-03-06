@@ -3,7 +3,8 @@
   "version": "0.0.8",
   "description": "Simple flexbox-based CSS library, written in SCSS.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "gulp": "gulp",
+    "start": "gulp"
   },
   "repository": {
     "type": "git",
@@ -16,6 +17,7 @@
   },
   "homepage": "https://github.com/aristovn/stylebox#readme",
   "devDependencies": {
+    "browser-sync": "2.18.8",
     "del": "2.2.2",
     "font-awesome": "4.7.0",
     "gulp": "github:gulpjs/gulp#4.0",
