@@ -1,3 +1,4 @@
+@import './variables';
 @import './utils';
 
 @import './components/visual-formatting.scss';
@@ -8,10 +9,24 @@
 
 @import './mixins/layout';
 @import './mixins/spacing';
-@import './mixins/shadows';
 @import './mixins/position';
 @import './mixins/rounding';
 @import './mixins/sizing';
 @import './mixins/colors';
 @import './mixins/buttons';
 @import './mixins/misc';
+
+@include flex-containers;
+@include flex-children;
+
+@include rounding($sb-radius);
+@include sizing(width, $sb-width-start, $sb-width-end);
+@include space($sb-space-start, $sb-space-end);
+
+.abs {
+  @include position(absolute);
+}
+
+.fix {
+  @include position(fixed);
+}

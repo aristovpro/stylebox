@@ -1,3 +1,40 @@
+@mixin edge($name, $color, $inset:null) {
+  .edge-#{getDir($inset)} {
+    &-#{$name} {
+      box-shadow: #{getTopShadow($inset, $color)},
+                  #{getBottomShadow($inset, $color)},
+                  #{getLeftShadow($inset, $color)},
+                  #{getRightShadow($inset, $color)};
+
+      &-t {
+        box-shadow: #{getTopShadow($inset, $color)};
+      }
+
+      &-b {
+        box-shadow: #{getBottomShadow($inset, $color)};
+      }
+
+      &-l {
+        box-shadow: #{getLeftShadow($inset, $color)};
+      }
+
+      &-r {
+        box-shadow: #{getRightShadow($inset, $color)};
+      }
+
+      &-v {
+        box-shadow: #{getTopShadow($inset, $color)},
+                    #{getBottomShadow($inset, $color)};
+      }
+
+      &-h {
+        box-shadow: #{getLeftShadow($inset, $color)},
+                    #{getRightShadow($inset, $color)};
+      }
+    }
+  }
+}
+
 @mixin color($name, $color) {
   .fg-#{$name},
   .fg-hover-#{$name}:hover,
@@ -10,4 +47,7 @@
   .bg-hover-#{$name}:hover {
     background-color: $color;
   }
+
+  @include edge($name, $color);
+  @include edge($name, $color, inset);
 }
