@@ -1,4 +1,4 @@
-@mixin rounding($radius) {
+@mixin radius($radius) {
   .rounded {
     border-radius: $radius;
 

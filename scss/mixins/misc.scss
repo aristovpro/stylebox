@@ -5,16 +5,6 @@
   }
 }
 
-@mixin respond-to($val, $query) {
-  @media screen and ($val: $query) {
-    @content;
-  }
-}
-
-@mixin font-family($family) {
-  font-family: $family, sans-serif;
-}
-
 @mixin first() {
   &:first-child {
     @content;
