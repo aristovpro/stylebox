@@ -68,10 +68,6 @@ $cross: start, center, end, stretch;
   #{each-for-cross(center)}  {align-items: center}
   #{each-for-cross(end)}     {align-items: flex-end}
   #{each-for-cross(stretch)} {align-items: stretch}
-
-  // Child wrapping.
-  .flex-wrap   {flex-wrap: wrap}
-  .flex-nowrap {flex-wrap: nowrap}
 }
 
 @mixin flex-children {
@@ -81,4 +77,19 @@ $cross: start, center, end, stretch;
     .flex-#{$i} {flex: $i}
     $i: $i + 1;
   }
+}
+
+@mixin flex {
+  @include flex-children;
+  @include flex-containers;
+
+  // Child wrapping.
+  .flex-wrap       {flex-wrap: wrap}
+  .flex-nowrap     {flex-wrap: nowrap}
+
+  // Child stretching.
+  .row-stretch     {@extend .row-start-stretch}
+  .row-stretch > * {@extend .flex-1}
+  .col-stretch     {@extend .col-start-stretch}
+  .col-stretch > * {@extend .flex-1}
 }
