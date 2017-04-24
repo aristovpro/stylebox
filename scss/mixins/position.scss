@@ -1,4 +1,4 @@
-@mixin position($prop) {
+@mixin sb-position($prop) {
   position: $prop;
 
   &-t {

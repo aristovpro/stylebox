@@ -3,7 +3,7 @@
 ### Configuration
 
 ```scss
-@include space($min, $max, $step: 0.25);
+@include sb-space($min, $max, $step: 0.25);
 ```
 
 ### Usage
@@ -14,19 +14,19 @@
   .children-margin-[value]-[side]
 ```
 
-Option | Required | Values
--------|----------|-------
-Value           | `false` | Value of margin or padding (rem)
-Side            | `false` | t (top) / r (right) / b (bottom) / l (left) / v (vertical) / h (horizontal)
-Side (children) | `true`  | v (vertical) / h (horizontal)
+Option          | Required | Values
+----------------|----------|-------
+Value           | `false`  | Value of margin or padding (rem)
+Side            | `false`  | t (top) / r (right) / b (bottom) / l (left) / v (vertical) / h (horizontal)
+Side (children) | `true`   | v (vertical) / h (horizontal)
 
 ## Shadows
 
 ### Configuration
 
 ```scss
-@include shadow('black', #000);
-@include shadow('black', #000, inset);
+@include sb-shadow('black', #000);
+@include sb-shadow('black', #000, inset);
 ```
 
 ### Usage
@@ -35,35 +35,35 @@ Side (children) | `true`  | v (vertical) / h (horizontal)
   .shadow-[direction]-[color]-[side]
 ```
 
-Option | Required | Values
--------|----------|-------
-Direction | `true`  | in / out
-Color     | `true`  | Color name from first mixin argument
-Side      | `false` | t (top) / r (right) / b (bottom) / l (left) / v (vertical) / h (horizontal)
+Option    | Required | Values
+----------|----------|-------
+Direction | `true`   | in / out
+Color     | `true`   | Color name from first mixin argument
+Side      | `false`  | t (top) / r (right) / b (bottom) / l (left) / v (vertical) / h (horizontal)
 
 ## Buttons
 
 ### Configuration
 
 ```scss
-@include button($name, $background, $color, $radius) {
-  @include button--hover($background, $color) {
+@include sb-button($name, $background, $color, $radius) {
+  @include sb-button--hover($background, $color) {
     ...
   }
-  @include button--active($background, $color) {
+  @include sb-button--active($background, $color) {
     ...
   }
-  @include button--disabled($background, $color) {
+  @include sb-button--disabled($background, $color) {
     ...
   }
-  @include button--icon($normal, $hover, $active, $disabled) {
+  @include sb-button--icon($normal, $hover, $active, $disabled) {
     ...
   }
 }
-@include button-size($size, $padding) {
+@include sb-button-size($size, $padding) {
   ...
 }
-@include button-reduction($size, $name);
+@include sb-button-reduction($size, $name);
 ```
 
 `button` — base mixin
@@ -80,16 +80,16 @@ determines button style and behavior
 #### SCSS code
 
 ```scss
-@include button('orange', #FF8D00, #FFF, 0.25rem) {
-  @include button--hover(#FFA445);
-  @include button--active(#E57700);
-  @include button--disabled(null, #000) {
+@include sb-button('orange', #FF8D00, #FFF, 0.25rem) {
+  @include sb-button--hover(#FFA445);
+  @include sb-button--active(#E57700);
+  @include sb-button--disabled(null, #000) {
     box-shadow: 0 0 0 1px #F00;
   }
-  @include button--icon(#000, null, null, #FFF);
+  @include sb-button--icon(#000, null, null, #FFF);
 }
-@include button-size('m', 0.5rem 1rem);
-@include button-reduction('m', 'orange');
+@include sb-button-size('m', 0.5rem 1rem);
+@include sb-button-reduction('m', 'orange');
 ```
 
 #### Available class names

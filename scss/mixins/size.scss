@@ -1,11 +1,11 @@
-@mixin size($prop, $min, $max, $step) {
-  .#{$prop} {
-    $val: $min;
-    @while $val <= $max {
-      &-#{str-replace($val + "", ".", "x")} {
-        #{$prop}: #{$val}rem;
-      }
-      $val: $val + $step;
+@import '../_utils';
+
+@mixin sb-size($prop, $min, $max, $step) {
+  $val: $min;
+  @while $val <= $max {
+    .#{$prop}-#{sb-str-replace($val + '', '.', 'x')} {
+      #{$prop}: #{$val}rem;
     }
+    $val: $val + $step;
   }
 }
