@@ -8,20 +8,20 @@
 @import './components/misc.scss';
 
 @import './mixins/layout';
-@include flex;
+@include sb-flex;
 
 @import './mixins/space';
-@include space($sb-space-start, $sb-space-end, $sb-space-step);
+@include sb-space($sb-space-start, $sb-space-end, $sb-space-step);
 
 @import './mixins/size';
-@include size(width, $sb-width-start, $sb-width-end, $sb-width-step);
+@include sb-size(width, $sb-width-start, $sb-width-end, $sb-width-step);
 
 @import './mixins/position';
-.abs {@include position(absolute)}
-.fix {@include position(fixed)}
+.abs {@include sb-position(absolute);}
+.fix {@include sb-position(fixed);}
 
 @import './mixins/radius';
-@include radius($sb-radius);
+@include sb-radius($sb-radius);
 
 @import './mixins/colors';
 

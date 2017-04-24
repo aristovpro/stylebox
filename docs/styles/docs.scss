@@ -13,14 +13,14 @@ $color-github:  #4183c4;
 
 @import './scss/stylebox';
 
-@include flex-containers;
-@include flex-children;
+@include sb-flex-containers;
+@include sb-flex-children;
 
-@include space(0, 8);
+@include sb-space(0, 8);
 
-@include color('secondary', $color-secondary);
+@include sb-color('secondary', $color-secondary);
 
-@include shadow('secondary', $color-secondary, inset);
+@include sb-shadow('secondary', $color-secondary, inset);
 
 /**
  * Icons

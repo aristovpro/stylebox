@@ -1,41 +1,39 @@
-@mixin edge($name, $color, $inset:null) {
-  .edge-#{getDir($inset)} {
-    &-#{$name} {
-      box-shadow: #{getTopShadow($inset, $color)},
-                  #{getBottomShadow($inset, $color)},
-                  #{getLeftShadow($inset, $color)},
-                  #{getRightShadow($inset, $color)};
+@mixin sb-edge($name, $color, $inset: null) {
+  .edge-#{sb-direction($inset)}-#{$name} {
+    box-shadow: #{sb-shadow-top($inset, $color)},
+                #{sb-shadow-bottom($inset, $color)},
+                #{sb-shadow-left($inset, $color)},
+                #{sb-shadow-right($inset, $color)};
 
-      &-t {
-        box-shadow: #{getTopShadow($inset, $color)};
-      }
+    &-t {
+      box-shadow: #{sb-shadow-top($inset, $color)};
+    }
 
-      &-b {
-        box-shadow: #{getBottomShadow($inset, $color)};
-      }
+    &-b {
+      box-shadow: #{sb-shadow-bottom($inset, $color)};
+    }
 
-      &-l {
-        box-shadow: #{getLeftShadow($inset, $color)};
-      }
+    &-l {
+      box-shadow: #{sb-shadow-left($inset, $color)};
+    }
 
-      &-r {
-        box-shadow: #{getRightShadow($inset, $color)};
-      }
+    &-r {
+      box-shadow: #{sb-shadow-right($inset, $color)};
+    }
 
-      &-v {
-        box-shadow: #{getTopShadow($inset, $color)},
-                    #{getBottomShadow($inset, $color)};
-      }
+    &-v {
+      box-shadow: #{sb-shadow-top($inset, $color)},
+                  #{sb-shadow-bottom($inset, $color)};
+    }
 
-      &-h {
-        box-shadow: #{getLeftShadow($inset, $color)},
-                    #{getRightShadow($inset, $color)};
-      }
+    &-h {
+      box-shadow: #{sb-shadow-left($inset, $color)},
+                  #{sb-shadow-right($inset, $color)};
     }
   }
 }
 
-@mixin color($name, $color) {
+@mixin sb-color($name, $color) {
   .fg-#{$name},
   .fg-hover-#{$name}:hover,
   .fg-links-#{$name} a,
@@ -48,6 +46,6 @@
     background-color: $color;
   }
 
-  @include edge($name, $color);
-  @include edge($name, $color, inset);
+  @include sb-edge($name, $color);
+  @include sb-edge($name, $color, inset);
 }

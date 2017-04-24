@@ -1,29 +1,29 @@
-@mixin placeholder($color, $opacity: 1) {
+@mixin sb-placeholder($color, $opacity: 1) {
   &::placeholder {
     color: $color;
     opacity: $opacity !important;
   }
 }
 
-@mixin first() {
+@mixin sb-first() {
   &:first-child {
     @content;
   }
 }
 
-@mixin last() {
+@mixin sb-last() {
   &:last-child {
     @content;
   }
 }
 
-@mixin not-first() {
+@mixin sb-not-first() {
   &:not(:first-child) {
     @content;
   }
 }
 
-@mixin not-last() {
+@mixin sb-not-last() {
   &:not(:last-child) {
     @content;
   }

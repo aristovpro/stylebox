@@ -1,54 +1,30 @@
-$property: margin, padding;
+@import '../_utils';
 
-@mixin space($min, $max, $step: 0.25) {
+@mixin sb-space($min, $max, $step: 0.25) {
   $val: $min;
+
   @while $val <= $max {
-    @each $prop in $property {
-      #{get-selector($prop, $val)} {
-        #{$prop}: #{$val}rem;
+    $size: sb-str-replace($val + '', '.', 'x');
 
-        &-t {
-          #{$prop}-top: #{$val}rem;
-        }
+    .margin-#{$size}   {margin:        #{$val}rem;}
+    .margin-#{$size}-t {margin-top:    #{$val}rem;}
+    .margin-#{$size}-r {margin-right:  #{$val}rem;}
+    .margin-#{$size}-b {margin-bottom: #{$val}rem;}
+    .margin-#{$size}-l {margin-left:   #{$val}rem;}
+    .margin-#{$size}-v {margin-top:    #{$val}rem; margin-bottom: #{$val}rem;}
+    .margin-#{$size}-h {margin-left:   #{$val}rem; margin-right: #{$val}rem;}
 
-        &-b {
-          #{$prop}-bottom: #{$val}rem;
-        }
+    .children-margin-#{$size}-v > :not(:first-child) {margin-top:  #{$val}rem;}
+    .children-margin-#{$size}-h > :not(:first-child) {margin-left: #{$val}rem;}
 
-        &-l {
-          #{$prop}-left: #{$val}rem;
-        }
-
-        &-r {
-          #{$prop}-right: #{$val}rem;
-        }
-
-        &-v {
-          #{$prop}-top:    #{$val}rem;
-          #{$prop}-bottom: #{$val}rem;
-        }
-
-        &-h {
-          #{$prop}-left:  #{$val}rem;
-          #{$prop}-right: #{$val}rem;
-        }
-      }
-
-      #{get-selector($prop, $val, 'children-')} {
-        &-v > :not(:first-child) {
-          margin-top: #{$val}rem;
-        }
-
-        &-h > :not(:first-child) {
-          margin-left: #{$val}rem;
-        }
-      }
-    }
+    .padding-#{$size}   {padding:        #{$val}rem;}
+    .padding-#{$size}-t {padding-top:    #{$val}rem;}
+    .padding-#{$size}-r {padding-right:  #{$val}rem;}
+    .padding-#{$size}-b {padding-bottom: #{$val}rem;}
+    .padding-#{$size}-l {padding-left:   #{$val}rem;}
+    .padding-#{$size}-v {padding-top:    #{$val}rem; padding-bottom: #{$val}rem;}
+    .padding-#{$size}-h {padding-left:   #{$val}rem; padding-right: #{$val}rem;}
 
     $val: $val + $step;
   }
-}
-
-@function get-selector($prop, $val, $prefix: '') {
-  @return '.#{$prefix}#{$prop}-#{str-replace($val + "", ".", "x")}';
 }

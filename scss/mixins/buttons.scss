@@ -1,4 +1,4 @@
-@mixin button($name, $background, $color, $radius) {
+@mixin sb-button($name, $background, $color, $radius) {
   .button {
     cursor: pointer;
   }
@@ -17,14 +17,14 @@
   }
 }
 
-@mixin button-size($name, $padding) {
+@mixin sb-button-size($name, $padding) {
   .button-size-#{$name} {
     padding: $padding;
     @content;
   }
 }
 
-@mixin button--hover($background, $color) {
+@mixin sb-button--hover($background, $color) {
   &:hover,
   &.hover {
     background: $background;
@@ -33,7 +33,7 @@
   }
 }
 
-@mixin button--active($background, $color) {
+@mixin sb-button--active($background, $color) {
   &:active,
   &.active {
     background: $background;
@@ -42,7 +42,7 @@
   }
 }
 
-@mixin button--disabled($background, $color) {
+@mixin sb-button--disabled($background, $color) {
   &[disabled],
   &.disabled {
     background: $background;
@@ -52,7 +52,7 @@
   }
 }
 
-@mixin button--icon($normal, $hover, $active, $disabled) {
+@mixin sb-button--icon($normal, $hover, $active, $disabled) {
   .icon {
     color: $normal;
     @content;
@@ -80,7 +80,7 @@
   }
 }
 
-@mixin button-reduction($size, $name) {
+@mixin sb-button-reduction($size, $name) {
   .btn-#{$size}-#{$name} {
     @extend .button;
     @extend .button-size-#{$size};
