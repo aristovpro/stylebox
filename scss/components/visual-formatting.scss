@@ -84,6 +84,12 @@
  * visibility
  */
 
-.visibility-hidden   { visibility: hidden; }
-.visibility-visible  { visibility: visible; }
-.visibility-collapse { visibility: collapse; }
+.visibility-hidden   { visibility: hidden }
+.visibility-visible  { visibility: visible }
+.visibility-collapse { visibility: collapse }
+
+/**
+ * tables
+ */
+
+.table-fixed { table-layout: fixed }

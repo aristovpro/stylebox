@@ -1,17 +1,33 @@
+## Layout
+
+### Usage
+
+```scss
+.[direction]-[main]-[cross]
+```
+
+Option    | Required | Values
+----------|----------|-------
+Direction |  `true`  | row / col
+Main      |  `true`  | start / center / end / around / between
+Cross     |  `true`  | start / center / end / stretch
+
 ## Spacing
 
 ### Configuration
 
 ```scss
-@include sb-space($min, $max, $step: 0.25);
+$sb-space-start: 0    !default;
+$sb-space-end:   8    !default;
+$sb-space-step:  0.25 !default;
 ```
 
 ### Usage
 
 ```scss
-  .margin-[value]-[side]
-  .padding-[value]-[side]
-  .children-margin-[value]-[side]
+.margin-[value]-[side]
+.padding-[value]-[side]
+.children-margin-[value]-[side]
 ```
 
 Option          | Required | Values
@@ -20,19 +36,26 @@ Value           | `false`  | Value of margin or padding (rem)
 Side            | `false`  | t (top) / r (right) / b (bottom) / l (left) / v (vertical) / h (horizontal)
 Side (children) | `true`   | v (vertical) / h (horizontal)
 
-## Shadows
+## Background, foreground, edge
 
 ### Configuration
 
 ```scss
-@include sb-shadow('black', #000);
-@include sb-shadow('black', #000, inset);
+@include sb-color('black', #000);
 ```
 
 ### Usage
 
 ```scss
-  .shadow-[direction]-[color]-[side]
+.fg-[color]
+.fg-hover-[color]
+.fg-links-[color]
+.fg-links-hover-[color]
+
+.bg-[color]
+.bg-hover-[color]
+
+.edge-[direction]-[color]-[side]
 ```
 
 Option    | Required | Values
@@ -41,61 +64,55 @@ Direction | `true`   | in / out
 Color     | `true`   | Color name from first mixin argument
 Side      | `false`  | t (top) / r (right) / b (bottom) / l (left) / v (vertical) / h (horizontal)
 
-## Buttons
+## Sizing
 
 ### Configuration
 
 ```scss
-@include sb-button($name, $background, $color, $radius) {
-  @include sb-button--hover($background, $color) {
-    ...
-  }
-  @include sb-button--active($background, $color) {
-    ...
-  }
-  @include sb-button--disabled($background, $color) {
-    ...
-  }
-  @include sb-button--icon($normal, $hover, $active, $disabled) {
-    ...
-  }
-}
-@include sb-button-size($size, $padding) {
-  ...
-}
-@include sb-button-reduction($size, $name);
+$sb-width-start: 0   !default;
+$sb-width-end:   8   !default;
+$sb-width-step:  0.5 !default;
 ```
 
-`button` — base mixin
-
-`button--hover`, `button--active`, `button--disabled`, `button--icon` — optional mixins,
-determines button style and behavior
-
-`button-size` — defines button size variant
-
-`button-reduction` — defines reduction for combination of size and name
-
-### Example
-
-#### SCSS code
+### Usage
 
 ```scss
-@include sb-button('orange', #FF8D00, #FFF, 0.25rem) {
-  @include sb-button--hover(#FFA445);
-  @include sb-button--active(#E57700);
-  @include sb-button--disabled(null, #000) {
-    box-shadow: 0 0 0 1px #F00;
-  }
-  @include sb-button--icon(#000, null, null, #FFF);
-}
-@include sb-button-size('m', 0.5rem 1rem);
-@include sb-button-reduction('m', 'orange');
+.width-[value]
 ```
 
-#### Available class names
+Option | Required | Values
+-------|----------|-------
+Width  |  `true`  | Value of width (rem)
 
-```html
-.button-orange
-.button-size-m
-.btn-m-orange
+## Position
+
+### Usage
+
+```scss
+.[position]-[main]-[cross]
 ```
+
+Option    | Required | Values
+----------|----------|-------
+Position  | `true`   | abs / fix
+Main      | `false`  | t (top) / r (right) / b (bottom) / l (left) / fit / center
+Cross     | `false`  | l (left) / r (right)
+
+## Radius
+
+### Configuration
+
+```scss
+$sb-radius: 3px !default;
+```
+
+### Usage
+
+```scss
+.radius-[main]-[cross]
+```
+
+Option    | Required | Values
+----------|----------|-------
+Main      | `false`  | t (top) / r (right) / b (bottom) / l (left)
+Cross     | `false`  | l (left) / r (right)
