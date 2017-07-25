@@ -85,8 +85,8 @@ $sb-cross-axes: start, center, end, stretch;
   .flex-nowrap     {flex-wrap: nowrap}
 
   // Child stretching.
-  .row-stretch     {@extend .row-start-stretch}
-  .row-stretch > * {@extend .flex-1}
-  .col-stretch     {@extend .col-start-stretch}
-  .col-stretch > * {@extend .flex-1}
+  .row-stretch     {@extend .row-start-stretch;}
+  .row-stretch > * {@extend .flex-1;}
+  .col-stretch     {@extend .col-start-stretch;}
+  .col-stretch > * {@extend .flex-1;}
 }

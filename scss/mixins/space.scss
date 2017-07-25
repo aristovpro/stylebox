@@ -14,8 +14,8 @@
     .margin-#{$size}-v {margin-top:    #{$val}rem; margin-bottom: #{$val}rem;}
     .margin-#{$size}-h {margin-left:   #{$val}rem; margin-right: #{$val}rem;}
 
-    .children-margin-#{$size}-v > :not(:first-child) {margin-top:  #{$val}rem;}
-    .children-margin-#{$size}-h > :not(:first-child) {margin-left: #{$val}rem;}
+    .children-margin-#{$size}-v > :not(:last-child) {margin-bottom:  #{$val}rem;}
+    .children-margin-#{$size}-h > :not(:last-child) {margin-right: #{$val}rem;}
 
     .padding-#{$size}   {padding:        #{$val}rem;}
     .padding-#{$size}-t {padding-top:    #{$val}rem;}

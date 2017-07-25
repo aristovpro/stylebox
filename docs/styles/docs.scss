@@ -20,7 +20,7 @@ $color-github:  #4183c4;
 
 @include sb-color('secondary', $color-secondary);
 
-@include sb-shadow('secondary', $color-secondary, inset);
+@include sb-edge('secondary', $color-secondary, inset);
 
 /**
  * Icons
@@ -74,7 +74,7 @@ table tr > * {
 }
 
 table td {
-  @extend .shadow-in-secondary-t;
+  @extend .edge-in-secondary-t;
 }
 
 table th {
