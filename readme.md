@@ -17,9 +17,9 @@ Cross     |  `true`  | start / center / end / stretch
 ### Configuration
 
 ```scss
-$sb-space-start: 0    !default;
-$sb-space-end:   8    !default;
-$sb-space-step:  0.25 !default;
+$sb-space-start:    0;
+$sb-space-end:      8;
+$sb-space-step:  0.25;
 ```
 
 ### Usage
@@ -69,9 +69,9 @@ Side      | `false`  | t (top) / r (right) / b (bottom) / l (left) / v (vertical
 ### Configuration
 
 ```scss
-$sb-width-start: 0   !default;
-$sb-width-end:   8   !default;
-$sb-width-step:  0.5 !default;
+$sb-width-start:   0;
+$sb-width-end:     8;
+$sb-width-step:  0.5;
 ```
 
 ### Usage
@@ -103,7 +103,7 @@ Cross     | `false`  | l (left) / r (right)
 ### Configuration
 
 ```scss
-$sb-radius: 3px !default;
+$sb-radius: 3px;
 ```
 
 ### Usage
