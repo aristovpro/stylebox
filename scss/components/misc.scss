@@ -9,3 +9,19 @@
 }
 
 .circle { border-radius: 50% }
+
+/**
+ * background size
+ */
+
+.bg-cover {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.bg-contain {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: contain;
+}
