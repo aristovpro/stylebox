@@ -4,27 +4,55 @@
   $val: $min;
 
   @while $val <= $max {
-    $size: sb-str-replace($val + '', '.', 'x');
-
-    .margin-#{$size}   {margin:        #{$val}rem;}
-    .margin-#{$size}-t {margin-top:    #{$val}rem;}
-    .margin-#{$size}-r {margin-right:  #{$val}rem;}
-    .margin-#{$size}-b {margin-bottom: #{$val}rem;}
-    .margin-#{$size}-l {margin-left:   #{$val}rem;}
-    .margin-#{$size}-v {margin-top:    #{$val}rem; margin-bottom: #{$val}rem;}
-    .margin-#{$size}-h {margin-left:   #{$val}rem; margin-right: #{$val}rem;}
-
-    .children-margin-#{$size}-v > :not(:last-child):not(:only-child) {margin-bottom:  #{$val}rem;}
-    .children-margin-#{$size}-h > :not(:last-child):not(:only-child) {margin-right: #{$val}rem;}
-
-    .padding-#{$size}   {padding:        #{$val}rem;}
-    .padding-#{$size}-t {padding-top:    #{$val}rem;}
-    .padding-#{$size}-r {padding-right:  #{$val}rem;}
-    .padding-#{$size}-b {padding-bottom: #{$val}rem;}
-    .padding-#{$size}-l {padding-left:   #{$val}rem;}
-    .padding-#{$size}-v {padding-top:    #{$val}rem; padding-bottom: #{$val}rem;}
-    .padding-#{$size}-h {padding-left:   #{$val}rem; padding-right: #{$val}rem;}
+    @include sb-margin($val);
+    @include sb-padding($val);
+    @include sb-gaps-v($val);
+    @include sb-gaps-h($val);
 
     $val: $val + $step;
+  }
+}
+
+@mixin sb-margin($val, $prefix: '') {
+  $size: sb-str-replace($val + '', '.', 'x');
+
+  .#{$prefix}margin-#{$size}   {margin:        #{$val}rem;}
+  .#{$prefix}margin-#{$size}-t {margin-top:    #{$val}rem;}
+  .#{$prefix}margin-#{$size}-r {margin-right:  #{$val}rem;}
+  .#{$prefix}margin-#{$size}-b {margin-bottom: #{$val}rem;}
+  .#{$prefix}margin-#{$size}-l {margin-left:   #{$val}rem;}
+  .#{$prefix}margin-#{$size}-v {margin-top:    #{$val}rem; margin-bottom: #{$val}rem;}
+  .#{$prefix}margin-#{$size}-h {margin-left:   #{$val}rem; margin-right: #{$val}rem;}
+}
+
+@mixin sb-padding($val, $prefix: '') {
+  $size: sb-str-replace($val + '', '.', 'x');
+
+  .#{$prefix}padding-#{$size}   {padding:        #{$val}rem;}
+  .#{$prefix}padding-#{$size}-t {padding-top:    #{$val}rem;}
+  .#{$prefix}padding-#{$size}-r {padding-right:  #{$val}rem;}
+  .#{$prefix}padding-#{$size}-b {padding-bottom: #{$val}rem;}
+  .#{$prefix}padding-#{$size}-l {padding-left:   #{$val}rem;}
+  .#{$prefix}padding-#{$size}-v {padding-top:    #{$val}rem; padding-bottom: #{$val}rem;}
+  .#{$prefix}padding-#{$size}-h {padding-left:   #{$val}rem; padding-right: #{$val}rem;}
+}
+
+@mixin sb-gaps-v($val, $prefix: '') {
+  $size: sb-str-replace($val + '', '.', 'x');
+
+  .#{$prefix}gaps-#{$size}-v > :not(:last-child):not(:only-child),
+  .#{$prefix}gaps-#{$size}[class^='col-']  > :not(:last-child):not(:only-child),
+  .#{$prefix}gaps-#{$size}[class*=' col-'] > :not(:last-child):not(:only-child) {
+    margin-bottom: #{$val}rem;
+  }
+}
+
+@mixin sb-gaps-h($val, $prefix: '') {
+  $size: sb-str-replace($val + '', '.', 'x');
+
+  .#{$prefix}gaps-#{$size}-h > :not(:last-child):not(:only-child),
+  .#{$prefix}gaps-#{$size}[class^='row-']  > :not(:last-child):not(:only-child),
+  .#{$prefix}gaps-#{$size}[class*=' row-'] > :not(:last-child):not(:only-child) {
+    margin-right: #{$val}rem;
   }
 }
