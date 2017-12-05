@@ -18,6 +18,10 @@
   @return if($prop == 'inset', 'in', 'out');
 }
 
+@function sb-shadow-around($inset, $color) {
+  @return if($inset, 'inset 0 0 0 1px #{$color}', '0 0 0 1px #{$color}');
+}
+
 @function sb-shadow-top($inset, $color) {
   @return if($inset, 'inset 0 1px #{$color}', '0 -1px #{$color}');
 }
