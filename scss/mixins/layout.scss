@@ -71,7 +71,7 @@ $sb-cross-axes: start, center, end, stretch;
   // .flex-N {flex: N} where 1 <= N <= 12
   $i: 1;
   @while $i <= 12 {
-    .flex-#{$i} {flex: $i}
+    .flex-#{$i} {flex: #{$i} 0 auto}
     $i: $i + 1;
   }
 }
