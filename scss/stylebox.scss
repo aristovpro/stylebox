@@ -17,8 +17,7 @@
 @include sb-size(width, $sb-width-start, $sb-width-end, $sb-width-step);
 
 @import './mixins/position';
-.abs {@include sb-position(absolute);}
-.fix {@include sb-position(fixed);}
+@include sb-position;
 
 @import './mixins/radius';
 @include sb-radius($sb-radius);
