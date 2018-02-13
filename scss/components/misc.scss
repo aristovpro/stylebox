@@ -1,11 +1,11 @@
+@import  '../mixins/misc';
+
 /**
  * geometry
  */
 
-.square::before {
-  content: '';
-  display: block;
-  padding-bottom: 100%;
+.square {
+  @include sb-height-percentage-trick(100%);
 }
 
 .circle { border-radius: 50% }
@@ -33,4 +33,9 @@
 .center-by-margins {
   margin-left: auto;
   margin-right: auto;
+}
+
+.stretch-to-viewport {
+  min-height: 100vh;
+  @extend .col-start-stretch;
 }

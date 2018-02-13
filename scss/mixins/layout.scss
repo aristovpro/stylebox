@@ -89,4 +89,6 @@ $sb-cross-axes: start, center, end, stretch;
   .row-stretch > * {@extend .flex-1;}
   .col-stretch     {@extend .col-start-stretch;}
   .col-stretch > * {@extend .flex-1;}
+
+  .flex-shrink-none {flex-shrink: 0}
 }
