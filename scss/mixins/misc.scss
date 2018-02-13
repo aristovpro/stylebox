@@ -29,7 +29,7 @@
   }
 }
 
-@mixin sb-transition($property: all, $duration: $transition-duration-fast, $function: ease-out) {
+@mixin sb-transition($property: all, $duration: 0.2s, $function: ease-out) {
   transition: $property $duration $function;
 }
 
