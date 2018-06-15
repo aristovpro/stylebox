@@ -1,6 +1,6 @@
 {
   "name": "stylebox",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Simple flexbox-based CSS library, written in SCSS.",
   "scripts": {
     "start": "gulp",
