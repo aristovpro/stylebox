@@ -25,14 +25,14 @@ $sb-space-step:  0.25;
 ### Usage
 
 ```scss
-.margin-[value]-[side]
-.padding-[value]-[side]
-.children-margin-[value]-[side]
+.margin-[side]-[value]
+.padding-[side]-[value]
+.gaps-[side]-[value]
 ```
 
 Option          | Required | Values
 ----------------|----------|-------
-Value           | `false`  | Value of margin or padding (rem)
+Value           | `true`  | Value of margin or padding (rem)
 Side            | `false`  | t (top) / r (right) / b (bottom) / l (left) / v (vertical) / h (horizontal)
 Side (children) | `true`   | v (vertical) / h (horizontal)
 
