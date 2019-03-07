@@ -4,6 +4,7 @@
 !/gulpfile.js
 !/package.json
 !/readme.md
+!/md.js
 !/docs
 !/scss
 !/yarn.lock
