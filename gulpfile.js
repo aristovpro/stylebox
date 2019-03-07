@@ -8,6 +8,7 @@ const $                 = require('gulp-load-plugins')()
 const bs                = require('browser-sync')
 const cp                = require('child_process')
 const fs                = require('fs')
+const fsp               = require('fs-path')
 const del               = require('del')
 const gulp              = require('gulp')
 const {promisify}       = require('util')
@@ -16,7 +17,7 @@ const {md}              = require('./md')
 
 
 const readFile          = promisify(fs.readFile)
-const writeFile         = promisify(fs.writeFile)
+const writeFile         = promisify(fsp.writeFile)
 
 /**
  * Globals
