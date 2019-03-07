@@ -23,25 +23,6 @@ $color-github:  #4183c4;
 @include sb-edge('secondary', $color-secondary, inset);
 
 /**
- * Icons
- */
-
-@import './node_modules/font-awesome/scss/variables';
-@import './node_modules/font-awesome/scss/path';
-@import './node_modules/font-awesome/scss/core';
-@import './node_modules/font-awesome/scss/mixins';
-
-.fa-github::before {content: $fa-var-github}
-
-.fa-github, a.fa-github   {color: $color-github}
-
-.fa::before {
-  display: inline-block;
-  width: 1em;
-  text-align: center;
-}
-
-/**
  * Misc
  */
 
@@ -70,7 +51,7 @@ table {
 }
 
 table tr > * {
-  @extend .padding-0x25-v;
+  @extend .padding-v-0x25;
 }
 
 table td {

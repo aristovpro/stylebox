@@ -4,7 +4,7 @@
   "description": "Simple flexbox-based CSS library, written in SCSS.",
   "scripts": {
     "start": "gulp",
-    "gulp": "gulp"
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",
@@ -17,16 +17,18 @@
   },
   "homepage": "https://github.com/aristovn/stylebox#readme",
   "devDependencies": {
-    "browser-sync": "2.18.8",
-    "del": "2.2.2",
-    "font-awesome": "4.7.0",
-    "gulp": "github:gulpjs/gulp#4.0",
-    "gulp-autoprefixer": "3.1.1",
-    "gulp-clean-css": "3.0.2",
+    "babel-eslint": "10.0.1",
+    "browser-sync": "2.26.3",
+    "del": "4.0.0",
+    "eslint": "5.15.1",
+    "gulp": "4.0.0",
+    "gulp-autoprefixer": "6.0.0",
+    "gulp-clean-css": "4.0.0",
     "gulp-load-plugins": "1.5.0",
-    "gulp-sass": "3.1.0",
-    "gulp-statil": "0.1.0",
-    "gulp-watch": "4.3.11",
-    "marked": "0.3.12"
+    "gulp-sass": "4.0.2",
+    "gulp-watch": "5.0.1",
+    "highlight.js": "9.15.6",
+    "marked": "0.6.1",
+    "statil": "0.9.0"
   }
 }

@@ -1,82 +1,92 @@
 'use strict'
 
-/* ***************************** Dependencies ********************************/
+/**
+ * Dependencies
+ */
 
-const $ = require('gulp-load-plugins')()
-const bs = require('browser-sync')
-const del = require('del')
-const gulp = require('gulp')
-const statilConfig = require('./statil')
+const $                 = require('gulp-load-plugins')()
+const bs                = require('browser-sync')
+const cp                = require('child_process')
+const fs                = require('fs')
+const del               = require('del')
+const gulp              = require('gulp')
+const {promisify}       = require('util')
+const {compileTemplate} = require('statil')
+const {md}              = require('./md')
 
-/* ******************************** Globals **********************************/
 
-const src = {
-  docHtml: 'docs/html/**/*',
-  docStyles: 'docs/styles/**/*.scss',
-  docStylesMain: 'docs/styles/docs.scss',
-  docFonts: 'node_modules/font-awesome/fonts/**/*',
-  libStylesDir: 'scss',
-}
+const readFile          = promisify(fs.readFile)
+const writeFile         = promisify(fs.writeFile)
 
-const out = {
-  docRoot: 'gh-pages',
-  docStyles: 'gh-pages/styles',
-  docFonts: 'gh-pages/fonts',
-}
+/**
+ * Globals
+ */
 
-function noop () {}
+const SRC_DOC_HTML        = 'docs/templates/index.html'
+const SRC_DOC_MD          = 'docs/templates/index.md'
+const SRC_DOC_STYLE_FILES = 'docs/styles/**/*.scss'
+const SRC_DOC_STYLE_ENTRY = 'docs/styles/docs.scss'
 
-/* ********************************* Tasks ***********************************/
+const OUT_DOC_DIR         = 'gh-pages'
+const OUT_DOC_HTML_FILE   = 'gh-pages/index.html'
 
-/* --------------------------------- Clear ---------------------------------- */
+const COMMIT              = cp.execSync('git rev-parse --short HEAD').toString().trim()
+const {version: VERSION}  = require('./package.json')
 
-gulp.task('docs:clear', () => (
+/**
+ * Clear
+ */
+
+gulp.task('clear', () => (
   // Skips dotfiles like `.git` and `.gitignore`
-  del(out.docRoot + '/*').catch(noop)
+  del(`${OUT_DOC_DIR}/*`).catch(console.error.bind(console))
 ))
 
-/* --------------------------------- HTML -----------------------------------*/
+/**
+ * Templates
+ */
 
-gulp.task('docs:html:build', () => (
-  gulp.src(src.docHtml)
-    .pipe($.statil(statilConfig))
-    .pipe(gulp.dest(out.docRoot))
-))
+gulp.task('docs:templates:build', async () => {
+  const mdInput = await readFile(SRC_DOC_MD, 'utf8')
+  const mdOut = md(compileTemplate(mdInput)({VERSION}))
 
-gulp.task('docs:html:watch', () => {
-  $.watch(src.docHtml, gulp.series('docs:html:build'))
+  const htmlInput = await readFile(SRC_DOC_HTML, 'utf8')
+  const htmlOut = compileTemplate(htmlInput)({COMMIT, content: mdOut})
+
+  await writeFile(OUT_DOC_HTML_FILE, htmlOut)
 })
 
-/* -------------------------------- Styles ----------------------------------*/
+gulp.task('docs:templates:watch', () => {
+  $.watch(SRC_DOC_HTML, gulp.series('docs:templates:build'))
+  $.watch(SRC_DOC_MD, gulp.series('docs:templates:build'))
+})
+
+/**
+ * Styles
+ */
 
 gulp.task('docs:styles:build', () => (
-  gulp.src(src.docStylesMain)
+  gulp.src(SRC_DOC_STYLE_ENTRY)
     .pipe($.sass())
-    .pipe($.autoprefixer())
+    .pipe($.autoprefixer({
+      browsers: ['> 1%', 'IE >= 10', 'iOS 7'],
+    }))
     .pipe($.cleanCss({
       keepSpecialComments: 0,
       aggressiveMerging: false,
       advanced: false,
-      compatibility: {properties: {colors: false}}
+      compatibility: {properties: {colors: false}},
     }))
-    .pipe(gulp.dest(out.docStyles))
+    .pipe(gulp.dest(OUT_DOC_DIR))
 ))
 
 gulp.task('docs:styles:watch', () => {
-  $.watch([src.docStyles, src.libStylesDir], gulp.series('docs:styles:build'))
+  $.watch(SRC_DOC_STYLE_FILES, gulp.series('docs:styles:build'))
 })
 
-/* -------------------------------- Fonts -----------------------------------*/
-
-gulp.task('docs:fonts:build', () => (
-  gulp.src(src.docFonts).pipe(gulp.dest(out.docFonts))
-))
-
-gulp.task('docs:fonts:watch', () => {
-  $.watch(src.docFonts, gulp.series('docs:fonts:build'))
-})
-
-/* -------------------------------- Server ----------------------------------*/
+/**
+ * Server
+ */
 
 gulp.task('docs:server', () => (
   bs.init({
@@ -87,8 +97,8 @@ gulp.task('docs:server', () => (
         (req, res, next) => {
           req.url = req.url.replace(/^\/stylebox\//, '').replace(/^[/]*/, '/')
           next()
-        }
-      ]
+        },
+      ],
     },
     port: 36463,
     files: 'gh-pages',
@@ -96,30 +106,25 @@ gulp.task('docs:server', () => (
     online: false,
     ui: false,
     ghostMode: false,
-    notify: false
+    notify: false,
   })
 ))
 
-/* -------------------------------- Default ---------------------------------*/
+/**
+ * Default
+ */
 
-gulp.task('docs:buildup', gulp.parallel(
-  'docs:html:build',
-  'docs:styles:build',
-  'docs:fonts:build'
+gulp.task('buildup', gulp.parallel(
+  'docs:templates:build',
+  'docs:styles:build'
 ))
 
-gulp.task('docs:watch', gulp.parallel(
-  'docs:html:watch',
+gulp.task('watch', gulp.parallel(
+  'docs:templates:watch',
   'docs:styles:watch',
-  'docs:fonts:watch'
+  'docs:server'
 ))
 
-gulp.task('docs:build', gulp.series(
-  'docs:clear',
-  'docs:buildup'
-))
+gulp.task('build', gulp.series('clear', 'buildup'))
 
-gulp.task('default', gulp.series(
-  'docs:build',
-  gulp.parallel('docs:watch', 'docs:server')
-))
+gulp.task('default', gulp.series('clear', 'buildup', 'watch'))

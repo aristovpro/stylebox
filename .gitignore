@@ -1,8 +1,9 @@
-# Files
-.DS_Store
-*.log
-
-# Folders
-dist
-gh-pages
-node_modules
+/*
+!/.eslintrc
+!/.gitignore
+!/gulpfile.js
+!/package.json
+!/readme.md
+!/docs
+!/scss
+!/yarn.lock
