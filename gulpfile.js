@@ -23,16 +23,17 @@ const writeFile         = promisify(fsp.writeFile)
  * Globals
  */
 
-const SRC_DOC_HTML        = 'docs/templates/index.html'
-const SRC_DOC_MD          = 'docs/templates/index.md'
-const SRC_DOC_STYLE_FILES = 'docs/styles/**/*.scss'
-const SRC_DOC_STYLE_ENTRY = 'docs/styles/docs.scss'
+const SRC_DOC_STATIC_FILES = 'docs/static/**/*'
+const SRC_DOC_HTML         = 'docs/templates/index.html'
+const SRC_DOC_MD           = 'docs/templates/index.md'
+const SRC_DOC_STYLE_FILES  = 'docs/styles/**/*.scss'
+const SRC_DOC_STYLE_ENTRY  = 'docs/styles/docs.scss'
 
-const OUT_DOC_DIR         = 'gh-pages'
-const OUT_DOC_HTML_FILE   = 'gh-pages/index.html'
+const OUT_DOC_DIR          = 'gh-pages'
+const OUT_DOC_HTML_FILE    = 'gh-pages/index.html'
 
-const COMMIT              = cp.execSync('git rev-parse --short HEAD').toString().trim()
-const {version: VERSION}  = require('./package.json')
+const COMMIT               = cp.execSync('git rev-parse --short HEAD').toString().trim()
+const {version: VERSION}   = require('./package.json')
 
 /**
  * Clear
@@ -42,6 +43,18 @@ gulp.task('clear', () => (
   // Skips dotfiles like `.git` and `.gitignore`
   del(`${OUT_DOC_DIR}/*`).catch(console.error.bind(console))
 ))
+
+/**
+ * Static
+ */
+
+gulp.task('docs:static:copy', () => (
+  gulp.src(SRC_DOC_STATIC_FILES).pipe(gulp.dest(OUT_DOC_DIR))
+))
+
+gulp.task('docs:static:watch', () => {
+  $.watch(SRC_DOC_STATIC_FILES, gulp.series('docs:static:copy'))
+})
 
 /**
  * Templates
@@ -116,11 +129,13 @@ gulp.task('docs:server', () => (
  */
 
 gulp.task('buildup', gulp.parallel(
+  'docs:static:copy',
   'docs:templates:build',
   'docs:styles:build'
 ))
 
 gulp.task('watch', gulp.parallel(
+  'docs:static:watch',
   'docs:templates:watch',
   'docs:styles:watch',
   'docs:server'
