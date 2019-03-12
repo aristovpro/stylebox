@@ -1,27 +1,2 @@
-@import './variables';
-@import './utils';
-
-@import './components/visual-formatting.scss';
-@import './components/box-size.scss';
-@import './components/font.scss';
-@import './components/text.scss';
-@import './components/misc.scss';
-
-@import './mixins/layout';
-@include sb-flex;
-
-@import './mixins/space';
-@include sb-space($sb-space-start, $sb-space-end, $sb-space-step);
-
-@import './mixins/size';
-@include sb-size(width, $sb-width-start, $sb-width-end, $sb-width-step);
-
-@import './mixins/position';
-@include sb-position;
-
-@import './mixins/radius';
-@include sb-radius($sb-radius);
-
-@import './mixins/colors';
-
-@import './mixins/misc';
+@import './atoms';
+@import './helpers';

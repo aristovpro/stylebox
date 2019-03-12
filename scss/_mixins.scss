@@ -1,0 +1,17 @@
+@mixin sb-placeholder($color, $opacity: 1) {
+  &::placeholder {
+    color: $color;
+    opacity: $opacity !important;
+  }
+}
+
+@mixin sb-multiline-ellipsis($line-height: 2.5ex, $line-count: 2) {
+  display: -webkit-box;
+  width: 100%;
+  height: $line-height * $line-count;
+  line-height: $line-height;
+  -webkit-line-clamp: $line-count;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

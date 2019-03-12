@@ -13,13 +13,6 @@ $color-github:  #4183c4;
 
 @import './scss/stylebox';
 
-@include sb-flex-containers;
-@include sb-flex-children;
-
-@include sb-space(0, 8);
-
-@include sb-color('secondary', $color-secondary);
-
 @include sb-edge('secondary', $color-secondary, inset);
 
 /**

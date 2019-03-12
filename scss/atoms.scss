@@ -1,0 +1,139 @@
+/**
+ * position
+ */
+
+.relative { position: relative }
+.absolute { position: absolute }
+.static   { position: static }
+.fixed    { position: fixed }
+
+/**
+ * display
+ */
+
+.block        { display: block }
+.inline       { display: inline }
+.inline-block { display: inline-block }
+.inline-table { display: inline-table }
+.table        { display: table }
+.table-row    { display: table-row }
+.table-column { display: table-column }
+.table-cell   { display: table-cell }
+.flex         { display: flex }
+
+/**
+ * float
+ */
+
+.float-none  { float: none }
+.float-left  { float: left }
+.float-right { float: right }
+
+/**
+ * clear
+ */
+
+.clear-none  { clear: none }
+.clear-both  { clear: both }
+.clear-left  { clear: left }
+.clear-right { clear: right }
+
+/**
+ * visibility
+ */
+
+.visibility-hidden   { visibility: hidden }
+.visibility-visible  { visibility: visible }
+.visibility-collapse { visibility: collapse }
+
+/**
+ * tables
+ */
+
+.table-fixed { table-layout: fixed }
+
+/**
+ * vertical-align
+ */
+
+.valign-top      { vertical-align: top }
+.valign-middle   { vertical-align: middle }
+.valign-bottom   { vertical-align: bottom }
+.valign-baseline { vertical-align: baseline }
+
+/**
+ * text-align
+ */
+
+.text-left    { text-align: left }
+.text-right   { text-align: right }
+.text-center  { text-align: center }
+.text-justify { text-align: justify }
+
+/**
+ * text-decoration
+ */
+
+.text-decoration-none { text-decoration: none }
+.text-overline        { text-decoration: overline }
+.text-underline       { text-decoration: underline }
+.text-line-through    { text-decoration: line-through }
+
+/**
+ * text-transform
+ */
+
+.text-transform-none { text-transform: none }
+.text-uppercase      { text-transform: uppercase }
+.text-lowercase      { text-transform: lowercase }
+.text-capitalize     { text-transform: capitalize }
+
+/**
+ * font-weight
+ */
+
+.weight-normal  { font-weight: normal }
+.weight-bold    { font-weight: bold }
+.weight-bolder  { font-weight: bolder }
+.weight-lighter { font-weight: lighter }
+
+/**
+ * font-style
+ */
+
+.font-style-normal { font-style: normal }
+
+/**
+ * white-space
+ */
+
+.wspace-normal { white-space: normal }
+.wspace-nowrap { white-space: nowrap }
+
+/**
+ * width and height
+ */
+
+.width-25p    { width: 25% }
+.width-50p    { width: 50% }
+.width-75p    { width: 75% }
+.width-100p   { width: 100% }
+.width-100vw  { width: 100vw }
+.height-100p  { height: 100% }
+.height-100vh { height: 100vh }
+
+/**
+ * cursor
+ */
+
+.cursor-pointer      { cursor: pointer }
+.pointer-events-none { pointer-events: none }
+
+/**
+ * flexbox
+ */
+
+.flex-1           { flex: 1 }
+.flex-wrap        { flex-wrap: wrap }
+.flex-nowrap      { flex-wrap: nowrap }
+.flex-shrink-none { flex-shrink: 0 }
