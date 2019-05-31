@@ -6,7 +6,7 @@ const marked = require('marked')
 exports.md = md
 function md(content) {
   return marked(content, markedOptions)
-    .replace(/<pre><code class="(.*)">|<pre><code>/g, '<pre><code class="hljs $1">')
+    .replace(/<pre><code class="(.*)">|<pre><code>/g, '<pre class="overflow-x-scroll"><code class="hljs $1">')
     .replace(/<!--\s*:((?:[^:]|:(?!\s*-->))*):\s*-->/g, '$1')
 }
 
