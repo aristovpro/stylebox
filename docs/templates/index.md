@@ -25,7 +25,7 @@
 
 ```html
 <div class="row-start-center gaps-h-0x5 padding-0x5">
-  <div class="circle bg-cover" style="width: 2.5rem; background-image: url(/images/photo.jpg);"></div>
+  <div class="circle bg-cover" style="width: 2.5rem; background-image: url(images/photo.jpg);"></div>
   <div class="col-start-stretch">
     <p><strong>Winnie The Pooh</strong></p>
     <p>@winnie</p>
@@ -36,7 +36,7 @@
 Результат:
 
 <div class="row-start-center gaps-h-0x5">
-  <div class="circle bg-cover" style="width: 2.5rem; background-image: url(/images/photo.jpg);"></div>
+  <div class="circle bg-cover" style="width: 2.5rem; background-image: url(images/photo.jpg);"></div>
   <div class="col-start-stretch">
     <p><strong>Winnie The Pooh</strong></p>
     <p>@winnie</p>
