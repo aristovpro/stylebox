@@ -1,0 +1,80 @@
+html {
+  color: $color-on-body;
+  background-color: $color-body;
+}
+
+/**
+ * Link Decoration
+ */
+
+@mixin theme-link {
+  color: $color-link;
+}
+
+@mixin theme-link-current {
+  @include if-current {
+    color: $color-on-surface;
+  }
+}
+
+@mixin theme-link-href-busy {
+  @include if-href {
+    @include busy {
+      color: $color-link;
+      text-decoration: underline;
+    }
+  }
+}
+
+@mixin theme-link-button-busy {
+  @include if-button {
+    @include busy {
+      color: $color-link;
+      text-decoration: underline;
+    }
+  }
+}
+
+.theme-link {@include theme-link;}
+.theme-link-current {@include theme-link-current;}
+.theme-link-href-busy {@include theme-link-href-busy;}
+.theme-link-button-busy {@include theme-link-button-busy;}
+
+.decorate-link {
+  @include theme-link;
+  @include theme-link-current;
+  @include theme-link-href-busy;
+  @include theme-link-button-busy;
+}
+
+.decorate-links a {
+  @include noclass {
+    @extend .decorate-link;
+  }
+}
+
+.decorate-fancy-link {
+  @extend .decorate-link;
+}
+
+.decorate-fancy-links a {
+  @include noclass {
+    @extend .decorate-fancy-link;
+  }
+}
+
+.fancy-typography {
+  table td {
+    border-color: rgba($color-on-surface, 0.12);
+  }
+
+  hr {
+    color: rgba($color-on-surface, 0.12);
+  }
+
+  @extend .decorate-fancy-links;
+}
+
+.hljs {
+  @extend .rounded;
+}

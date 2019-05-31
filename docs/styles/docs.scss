@@ -1,57 +1,11 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i&subset=latin-ext);
+@import './reset';
+@import './mixins';
+@import './variables';
 
-/**
- * Vars
- */
-
-$color-secondary: #f7f7f7;
-$color-github:  #4183c4;
-
-/**
- * Stylebox
- */
+@import 'node_modules/highlight.js/styles/solarized-light';
 
 @import './scss/stylebox';
-
-@include sb-edge('secondary', $color-secondary, inset);
-
-/**
- * Misc
- */
-
-html {
-  min-width: 320px;
-  line-height: 1.6;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Open Sans, sans-serif;
-  font-size: 16px;
-}
-
-html *,
-html ::before,
-html ::after {
-  box-sizing: border-box;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  @extend .weight-normal;
-}
-
-table {
-  @extend .width-100p;
-  table-layout: fixed;
-  border-spacing: 0;
-  border-collapse: collapse;
-}
-
-table tr > * {
-  @extend .padding-v-0x25;
-}
-
-table td {
-  @extend .edge-in-secondary-t;
-}
-
-table th {
-  @extend .text-left;
-  @extend .weight-normal;
-}
+@import './media-queries';
+@import './typography';
+@import './layout';
+@import './themes';

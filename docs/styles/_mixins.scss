@@ -1,0 +1,59 @@
+@mixin center-by-margins {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin limit-width {
+  width: 100%;
+  max-width: $page-width-max;
+  min-width: $page-width-min;
+
+  @include center-by-margins;
+}
+
+@mixin if-href {
+  &[href]:not([href='']) {@content;}
+}
+
+@mixin if-button {
+  &[role='button']:not([disabled]) {@content;}
+}
+
+// https://www.w3.org/TR/wai-aria-1.1/#aria-current
+// [aria-current='']         = not current
+// [aria-current=false]      = not current
+// [aria-current=undefined]  = not current
+// [aria-current=<other>]    = current
+@mixin if-current {
+  &[aria-current]:not([aria-current='']):not([aria-current=false]) {
+    @content;
+  }
+}
+
+@mixin if-current-href {
+  @include if-current {@include if-href {@content;}}
+}
+
+@mixin if-expanded {
+  &[aria-expanded]:not([aria-expanded='']):not([aria-expanded=false]) {
+    @content;
+  }
+}
+
+@mixin busy {
+  &:hover, .enable-focus-indicators &:focus, &:active {
+    @content;
+  }
+}
+
+@mixin disabled {
+  &[disabled], &[aria-disabled]:not([aria-disabled='']):not([aria-disabled=false]) {
+    @content;
+  }
+}
+
+@mixin noclass {
+  &:not([class]), &[class=''] {
+    @content;
+  }
+}

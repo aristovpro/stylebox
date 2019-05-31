@@ -1,0 +1,16 @@
+@mixin media-lg {
+  @media screen and (min-width: $page-width-max) {@content;}
+}
+
+@mixin media-not-lg {
+  @media not screen and (min-width: $page-width-max) {@content;}
+}
+
+@include media-lg {
+  .lg-hide {display: none;}
+}
+
+@include media-not-lg {
+  .not-lg-hide {display: none;}
+}
+

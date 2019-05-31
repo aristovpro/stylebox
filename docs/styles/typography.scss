@@ -1,0 +1,109 @@
+@import './variables';
+
+* {
+  line-height: 1.44;
+}
+
+html {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Roboto, Oxygen-Sans, Ubuntu, Cantarell, Verdana, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+body {
+  font-size: 14px;
+}
+
+.font-large     {font-size: 22px;}
+.font-midlarge  {font-size: 20px;}
+.font-regular   {font-size: 14px;}
+.font-midsmall  {font-size: 12.5px;}
+.font-small     {font-size: 12px;}
+
+.weight-light {
+  font-weight: 300;
+}
+
+.weight-regular {
+  font-weight: 400;
+}
+
+.weight-medium {
+  font-weight: 500;
+}
+
+.weight-bold {
+  font-weight: 700;
+}
+
+strong, b {
+  @extend .weight-medium;
+}
+
+sup, sub {
+  vertical-align: baseline;
+  position: relative;
+  font-size: 0.75em;
+}
+
+sup {
+  top: -0.6em;
+}
+
+sub {
+  top: 0.6em;
+}
+
+.fancy-typography {
+  h1 {@extend .font-large;}
+  h2 {@extend .font-large;}
+  h3 {@extend .font-midlarge;}
+  h4 {@extend .font-midlarge;}
+
+  h1, h2, h3, h4, h5, h6 {
+    &:not(:first-child) {
+      margin-top: 1.25rem;
+    }
+    margin-bottom: 1rem;
+  }
+
+  > p, > ul, > ol {
+    &:not(:first-child) {
+      margin-top: 1rem;
+    }
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  li {
+    &:not(:first-child) {
+      margin-top: 0.25rem;
+    }
+    &:not(:last-child) {
+      margin-bottom: 0.25rem;
+    }
+  }
+
+  hr {
+    @extend .margin-v-1;
+  }
+
+  table {
+    width: 100%;
+    table-layout: fixed;
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+
+  table tr > * {
+    @extend .padding-0x5;
+  }
+
+  table td {
+    border-top: 1px solid black;
+  }
+
+  table th {
+    @extend .text-left;
+    @extend .weight-regular;
+  }
+}

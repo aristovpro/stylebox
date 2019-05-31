@@ -1,0 +1,11 @@
+body {
+  min-width: $page-width-min;
+
+  // Always show the scrollbar. This prevents layout jitter when navigating
+  // between pages that do and do not overflow.
+  overflow-y: scroll;
+}
+
+.limit-width {
+  @include limit-width;
+}
