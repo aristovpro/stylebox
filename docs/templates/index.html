@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="{{$.LANG || 'en'}}">
 <base href="/stylebox/">
 <title>stylebox</title>
 <meta charset="utf-8">
@@ -32,7 +32,7 @@
         </a>
       </p>
       <article class="fancy-typography">
-        {{$.content}}
+        {{$.CONTENT}}
       </article>
     </div>
   </div>

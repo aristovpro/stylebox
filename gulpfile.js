@@ -23,17 +23,30 @@ const writeFile         = promisify(fsp.writeFile)
  * Globals
  */
 
+const SRC_DOC_TEMPLATE_DIR   = 'docs/templates'
+const SRC_DOC_TEMPLATE_FILES = 'docs/templates/**/*'
 const SRC_DOC_STATIC_FILES = 'docs/static/**/*'
-const SRC_DOC_HTML         = 'docs/templates/index.html'
-const SRC_DOC_MD           = 'docs/templates/index.md'
 const SRC_DOC_STYLE_FILES  = 'docs/styles/**/*.scss'
 const SRC_DOC_STYLE_ENTRY  = 'docs/styles/docs.scss'
 
 const OUT_DOC_DIR          = 'gh-pages'
-const OUT_DOC_HTML_FILE    = 'gh-pages/index.html'
 
 const COMMIT               = cp.execSync('git rev-parse --short HEAD').toString().trim()
-const {version: VERSION}   = require('./package.json')
+
+const PAGES = [
+  {
+    md: 'index.md',
+    template: 'index.html',
+    outPath: 'index.html',
+    lang: 'en',
+  },
+  {
+    md: 'index_ru.md',
+    template: 'index.html',
+    outPath: 'ru/index.html',
+    lang: 'ru',
+  },
+]
 
 /**
  * Clear
@@ -61,18 +74,23 @@ gulp.task('docs:static:watch', () => {
  */
 
 gulp.task('docs:templates:build', async () => {
-  const mdInput = await readFile(SRC_DOC_MD, 'utf8')
-  const mdOut = md(compileTemplate(mdInput)({VERSION}))
+  for (const page of PAGES) {
+    const mdInput = await readFile(`${SRC_DOC_TEMPLATE_DIR}/${page.md}`, 'utf8')
+    const mdOut = md(compileTemplate(mdInput)())
 
-  const htmlInput = await readFile(SRC_DOC_HTML, 'utf8')
-  const htmlOut = compileTemplate(htmlInput)({COMMIT, content: mdOut})
+    const pageInput  = await readFile(`${SRC_DOC_TEMPLATE_DIR}/${page.template}`, 'utf8')
+    const pageOutput = compileTemplate(pageInput)({
+      COMMIT,
+      CONTENT: mdOut,
+      LANG: page.lang,
+    })
 
-  await writeFile(OUT_DOC_HTML_FILE, htmlOut)
+    await writeFile(`${OUT_DOC_DIR}/${page.outPath}`, pageOutput)
+  }
 })
 
 gulp.task('docs:templates:watch', () => {
-  $.watch(SRC_DOC_HTML, gulp.series('docs:templates:build'))
-  $.watch(SRC_DOC_MD, gulp.series('docs:templates:build'))
+  $.watch(SRC_DOC_TEMPLATE_FILES, gulp.series('docs:templates:build'))
 })
 
 /**

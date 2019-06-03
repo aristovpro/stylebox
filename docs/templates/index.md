@@ -1,13 +1,15 @@
 ## About
 
-**Stylebox** — CSS библиотека, написанная на SCSS. Разработана для создания гибких и легко расширяемых веб-приложений, без необходимости написания большого количества стилей. Stylebox включает две основных концепции:
+**Stylebox** — is a CSS library based on SCSS. It was developed for creating flexible and extendable web applications without the writing of numerous style classes. Stylebox based on 2 main conceptions:
 
-- Удобное построение разметки с помощью классов, основанных на [Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox);
-- Наследование принципов Atomic CSS, подразумевающих использование классов, несущих минимальное количество CSS-свойств.
+- Convenient layouting with classes based on [Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox);
+- Inheritance of Atomic CSS principles that imply using of classes consisting of minimum CSS properties.
 
 ## Motivation
 
-Этот набор стилей получен из опыта разработки множества web-приложений. Он помогает сократить написание css-кода и позволяет максимально переиспользовать стили, что отлично сочетается с компонентами такого фреймворка, как React. Для лучшего понимания, давайте создадим простую карточку пользователя, используя Stylebox. Для начала создадим общую разметку без стилей:
+Stylebox's set of classes was build according to experience based on the development of plenty of web applications. It helps to reduce the amount of CSS code and allows to reuse styles with minimum efforts, that goes well with such frameworks as React.
+
+For better understanding, let's create a simple user card with Stylebox. Firstly let's create a common layout without styles:
 
 ```html
 <div>
@@ -19,7 +21,7 @@
 </div>
 ```
 
-Добавим стили из Stylebox:
+As the next step, let's add styles from Stylebox:
 
 ```html
 <div class="row-start-center gaps-h-0x5 padding-0x5">
@@ -31,7 +33,7 @@
 </div>
 ```
 
-Результат:
+The result:
 
 <div class="row-start-center gaps-h-0x5">
   <div class="circle bg-cover" style="width: 2.5rem; background-image: url(images/photo.jpg);"></div>
@@ -118,7 +120,7 @@
 .[col|row]-[start|center|end|around|between]-[start|center|end|stretch]
 ```
 
-Классы основанные на [Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox). Добавляются на родительский элемент и задают поток дочерних. Первый параметр задает направление, второй выравнивание по основной оси, третий выравнивание по второстепенной.
+Classes based on [Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox). The classes are applied to a parent element and set the flow for its children. The 1st param sets the direction, the 2nd param describes how to align the children on the main axis, the 3rd defines how to align the children on the secondary axis.
 
 ---
 
@@ -131,7 +133,7 @@
 .[abs|fix]-center-[x|y]
 ```
 
-Классы для абсолютного и фиксированного позиционирования. Классы с суффиксом `fit` растягивают элемент на всю ширину и высоту родительского.
+Classes for absolute and fixed positioning. Classes that have the `fit` suffix stretch an element to which they are applied to the full width and height of its parent.
 
 ---
 
@@ -143,7 +145,7 @@ $sb-radius: 3px !default;
 .rounded-[t|b]-[l|r]
 ```
 
-Классы для скругления углов. Можно поменять стандартное значение переменной.
+Classes for corners rounding. It's up to you to change the default value of the `$sb-radius` variable.
 
 ---
 
@@ -159,7 +161,7 @@ $sb-space-step:  0.25 !default;
 .gaps-[v|h]-[$VALUE]
 ```
 
-Классы для задания отступов. С помощью переменных можно изменить диапазон значений. Единица измерений `rem`. В дробных значениях точка заменяется на `x`, например `.margin-v-1x25`. Классы `.gaps` добавляются на родительский тег, задавая отступы между дочерними элементами.
+Classes for idents setting. It's possible to change the range of values with the help of variables. The unit of measurement is `rem`. In fractional values the dot is replaced with `x` for example `.margin-v-1x25`. The `.gaps` classes are added to the parent element, specifying padding between its children.
 
 ---
 
@@ -167,7 +169,7 @@ $sb-space-step:  0.25 !default;
 .overflow-x-scroll
 ```
 
-Добавляет скроллбар по оси `x`, но скрывает по оси `y`.
+Adds a scrollbar for the x-axis, but hides for the y-axis.
 
 ---
 
@@ -175,7 +177,7 @@ $sb-space-step:  0.25 !default;
 .overflow-y-scroll
 ```
 
-Добавляет скроллбар по оси `y`, но скрывает по оси `x`.
+Adds a scrollbar for the y-axis, but hides for the x-axis.
 
 ---
 
@@ -185,14 +187,16 @@ $sb-space-step:  0.25 !default;
 
 Обрезает текстового строку выходящую за границы родительского тега.
 
+Cuts a text string that extends beyond boundaries of its parent element.
+
 ---
 
 ```css
 .square
 ```
 
-Создает квадрат, используя псевдокласс `::before`.
-Размер регулируется свойством `width`.
+Creates a square using the pseudo-class `:: before`.
+Its size can be adjusted using the `width` property.
 
 ---
 
@@ -200,7 +204,7 @@ $sb-space-step:  0.25 !default;
 .circle
 ```
 
-Как `.square`, но скругляет углы на 50%.
+Like `.square`, but rounds corners by 50%.
 
 ---
 
@@ -208,7 +212,7 @@ $sb-space-step:  0.25 !default;
 .bg-cover
 ```
 
-Класс задает комбинацию свойств, для задания `background-image` как обложки.
+The class defines a combination of properties that set `background-image` as the cover.
 
 ---
 
@@ -216,7 +220,7 @@ $sb-space-step:  0.25 !default;
 .bg-contain
 ```
 
-Класс задает комбинацию свойств, для вписания `background-image` по большей стороне.
+The class defines a combination of properties to fit `background-image` to the larger side.
 
 ---
 
@@ -224,7 +228,7 @@ $sb-space-step:  0.25 !default;
 .stretch-to-viewport
 ```
 
-Комбинация хелпера `.col-start-stretch` и свойства `min-height: 100vh`.
+The combination of the `.col-start-stretch` helper and the `min-height: 100vh` property.
 
 ---
 
@@ -232,4 +236,4 @@ $sb-space-step:  0.25 !default;
 .block-100p
 ```
 
-Комбинация атомов `.block` и `.width-100p`.
+The combination of the `.block` and` .width-100p` atoms.
