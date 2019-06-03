@@ -89,128 +89,128 @@
  * flexbox
  */
 
-@mixin sb-row { display: flex; flex-direction: row }
-@mixin sb-col { display: flex; flex-direction: column }
+@mixin sb-row { display: flex; flex-direction: row; }
+@mixin sb-col { display: flex; flex-direction: column; }
 
-@mixin sb-main-start   { justify-content: flex-start }
-@mixin sb-main-center  { justify-content: center }
-@mixin sb-main-end     { justify-content: flex-end }
-@mixin sb-main-around  { justify-content: space-around }
-@mixin sb-main-between { justify-content: space-between }
+@mixin sb-main-start   { justify-content: flex-start; }
+@mixin sb-main-center  { justify-content: center; }
+@mixin sb-main-end     { justify-content: flex-end; }
+@mixin sb-main-around  { justify-content: space-around; }
+@mixin sb-main-between { justify-content: space-between; }
 
-@mixin sb-cross-start   { align-items: flex-start }
-@mixin sb-cross-center  { align-items: center }
-@mixin sb-cross-end     { align-items: flex-end }
-@mixin sb-cross-stretch { align-items: stretch }
+@mixin sb-cross-start   { align-items: flex-start; }
+@mixin sb-cross-center  { align-items: center; }
+@mixin sb-cross-end     { align-items: flex-end; }
+@mixin sb-cross-stretch { align-items: stretch; }
 
-.row-start-start     { @include sb-row; @include sb-main-start; @include sb-cross-start }
-.row-start-center    { @include sb-row; @include sb-main-start; @include sb-cross-center }
-.row-start-end       { @include sb-row; @include sb-main-start; @include sb-cross-end }
-.row-start-stretch   { @include sb-row; @include sb-main-start; @include sb-cross-stretch }
+.row-start-start     { @include sb-row; @include sb-main-start; @include sb-cross-start; }
+.row-start-center    { @include sb-row; @include sb-main-start; @include sb-cross-center; }
+.row-start-end       { @include sb-row; @include sb-main-start; @include sb-cross-end; }
+.row-start-stretch   { @include sb-row; @include sb-main-start; @include sb-cross-stretch; }
 
-.row-center-start    { @include sb-row; @include sb-main-center; @include sb-cross-start }
-.row-center-center   { @include sb-row; @include sb-main-center; @include sb-cross-center }
-.row-center-end      { @include sb-row; @include sb-main-center; @include sb-cross-end }
-.row-center-stretch  { @include sb-row; @include sb-main-center; @include sb-cross-stretch }
+.row-center-start    { @include sb-row; @include sb-main-center; @include sb-cross-start; }
+.row-center-center   { @include sb-row; @include sb-main-center; @include sb-cross-center; }
+.row-center-end      { @include sb-row; @include sb-main-center; @include sb-cross-end; }
+.row-center-stretch  { @include sb-row; @include sb-main-center; @include sb-cross-stretch; }
 
-.row-end-start       { @include sb-row; @include sb-main-end; @include sb-cross-start }
-.row-end-center      { @include sb-row; @include sb-main-end; @include sb-cross-center }
-.row-end-end         { @include sb-row; @include sb-main-end; @include sb-cross-end }
-.row-end-stretch     { @include sb-row; @include sb-main-end; @include sb-cross-stretch }
+.row-end-start       { @include sb-row; @include sb-main-end; @include sb-cross-start; }
+.row-end-center      { @include sb-row; @include sb-main-end; @include sb-cross-center; }
+.row-end-end         { @include sb-row; @include sb-main-end; @include sb-cross-end; }
+.row-end-stretch     { @include sb-row; @include sb-main-end; @include sb-cross-stretch; }
 
-.row-around-start    { @include sb-row; @include sb-main-around; @include sb-cross-start }
-.row-around-center   { @include sb-row; @include sb-main-around; @include sb-cross-center }
-.row-around-end      { @include sb-row; @include sb-main-around; @include sb-cross-end }
-.row-around-stretch  { @include sb-row; @include sb-main-around; @include sb-cross-stretch }
+.row-around-start    { @include sb-row; @include sb-main-around; @include sb-cross-start; }
+.row-around-center   { @include sb-row; @include sb-main-around; @include sb-cross-center; }
+.row-around-end      { @include sb-row; @include sb-main-around; @include sb-cross-end; }
+.row-around-stretch  { @include sb-row; @include sb-main-around; @include sb-cross-stretch; }
 
-.row-between-start   { @include sb-row; @include sb-main-between; @include sb-cross-start }
-.row-between-center  { @include sb-row; @include sb-main-between; @include sb-cross-center }
-.row-between-end     { @include sb-row; @include sb-main-between; @include sb-cross-end }
-.row-between-stretch { @include sb-row; @include sb-main-between; @include sb-cross-stretch }
+.row-between-start   { @include sb-row; @include sb-main-between; @include sb-cross-start; }
+.row-between-center  { @include sb-row; @include sb-main-between; @include sb-cross-center; }
+.row-between-end     { @include sb-row; @include sb-main-between; @include sb-cross-end; }
+.row-between-stretch { @include sb-row; @include sb-main-between; @include sb-cross-stretch; }
 
-.col-start-start     { @include sb-col; @include sb-main-start; @include sb-cross-start }
-.col-start-center    { @include sb-col; @include sb-main-start; @include sb-cross-center }
-.col-start-end       { @include sb-col; @include sb-main-start; @include sb-cross-end }
-.col-start-stretch   { @include sb-col; @include sb-main-start; @include sb-cross-stretch }
+.col-start-start     { @include sb-col; @include sb-main-start; @include sb-cross-start; }
+.col-start-center    { @include sb-col; @include sb-main-start; @include sb-cross-center; }
+.col-start-end       { @include sb-col; @include sb-main-start; @include sb-cross-end; }
+.col-start-stretch   { @include sb-col; @include sb-main-start; @include sb-cross-stretch; }
 
-.col-center-start    { @include sb-col; @include sb-main-center; @include sb-cross-start }
-.col-center-center   { @include sb-col; @include sb-main-center; @include sb-cross-center }
-.col-center-end      { @include sb-col; @include sb-main-center; @include sb-cross-end }
-.col-center-stretch  { @include sb-col; @include sb-main-center; @include sb-cross-stretch }
+.col-center-start    { @include sb-col; @include sb-main-center; @include sb-cross-start; }
+.col-center-center   { @include sb-col; @include sb-main-center; @include sb-cross-center; }
+.col-center-end      { @include sb-col; @include sb-main-center; @include sb-cross-end; }
+.col-center-stretch  { @include sb-col; @include sb-main-center; @include sb-cross-stretch; }
 
-.col-end-start       { @include sb-col; @include sb-main-end; @include sb-cross-start }
-.col-end-center      { @include sb-col; @include sb-main-end; @include sb-cross-center }
-.col-end-end         { @include sb-col; @include sb-main-end; @include sb-cross-end }
-.col-end-stretch     { @include sb-col; @include sb-main-end; @include sb-cross-stretch }
+.col-end-start       { @include sb-col; @include sb-main-end; @include sb-cross-start; }
+.col-end-center      { @include sb-col; @include sb-main-end; @include sb-cross-center; }
+.col-end-end         { @include sb-col; @include sb-main-end; @include sb-cross-end; }
+.col-end-stretch     { @include sb-col; @include sb-main-end; @include sb-cross-stretch; }
 
-.col-around-start    { @include sb-col; @include sb-main-around; @include sb-cross-start }
-.col-around-center   { @include sb-col; @include sb-main-around; @include sb-cross-center }
-.col-around-end      { @include sb-col; @include sb-main-around; @include sb-cross-end }
-.col-around-stretch  { @include sb-col; @include sb-main-around; @include sb-cross-stretch }
+.col-around-start    { @include sb-col; @include sb-main-around; @include sb-cross-start; }
+.col-around-center   { @include sb-col; @include sb-main-around; @include sb-cross-center; }
+.col-around-end      { @include sb-col; @include sb-main-around; @include sb-cross-end; }
+.col-around-stretch  { @include sb-col; @include sb-main-around; @include sb-cross-stretch; }
 
-.col-between-start   { @include sb-col; @include sb-main-between; @include sb-cross-start }
-.col-between-center  { @include sb-col; @include sb-main-between; @include sb-cross-center }
-.col-between-end     { @include sb-col; @include sb-main-between; @include sb-cross-end }
-.col-between-stretch { @include sb-col; @include sb-main-between; @include sb-cross-stretch }
+.col-between-start   { @include sb-col; @include sb-main-between; @include sb-cross-start; }
+.col-between-center  { @include sb-col; @include sb-main-between; @include sb-cross-center; }
+.col-between-end     { @include sb-col; @include sb-main-between; @include sb-cross-end; }
+.col-between-stretch { @include sb-col; @include sb-main-between; @include sb-cross-stretch; }
 
 /**
  * position
  */
 
-@mixin sb-position-t        { top: 0 }
-@mixin sb-position-t-l      { top: 0; left: 0 }
-@mixin sb-position-t-r      { top: 0; right: 0 }
-@mixin sb-position-b        { bottom: 0 }
-@mixin sb-position-b-l      { bottom: 0; left: 0 }
-@mixin sb-position-b-r      { bottom: 0; right: 0 }
-@mixin sb-position-l        { left: 0 }
-@mixin sb-position-r        { right: 0 }
-@mixin sb-position-fit      { top: 0; right: 0; bottom: 0; left: 0 }
-@mixin sb-position-center-x { transform: translateX(-50%); left: 50% }
-@mixin sb-position-center-y { transform: translateY(-50%); top: 50% }
-@mixin sb-position-center   { transform: translateY(-50%) translateX(-50%); top: 50%; left: 50% }
+@mixin sb-position-t        { top: 0; }
+@mixin sb-position-t-l      { top: 0; left: 0; }
+@mixin sb-position-t-r      { top: 0; right: 0; }
+@mixin sb-position-b        { bottom: 0; }
+@mixin sb-position-b-l      { bottom: 0; left: 0; }
+@mixin sb-position-b-r      { bottom: 0; right: 0; }
+@mixin sb-position-l        { left: 0; }
+@mixin sb-position-r        { right: 0; }
+@mixin sb-position-fit      { top: 0; right: 0; bottom: 0; left: 0; }
+@mixin sb-position-center-x { transform: translateX(-50%); left: 50%; }
+@mixin sb-position-center-y { transform: translateY(-50%); top: 50%; }
+@mixin sb-position-center   { transform: translateY(-50%) translateX(-50%); top: 50%; left: 50%;; }
 
-.abs          { position: absolute }
-.abs-t        { position: absolute; @include sb-position-t }
-.abs-t-l      { position: absolute; @include sb-position-t-l }
-.abs-t-r      { position: absolute; @include sb-position-t-r }
-.abs-b        { position: absolute; @include sb-position-b }
-.abs-b-l      { position: absolute; @include sb-position-b-l }
-.abs-b-r      { position: absolute; @include sb-position-b-r }
-.abs-l        { position: absolute; @include sb-position-l }
-.abs-r        { position: absolute; @include sb-position-r }
-.abs-fit      { position: absolute; @include sb-position-fit }
-.abs-center   { position: absolute; @include sb-position-center-x }
-.abs-center-x { position: absolute; @include sb-position-center-y }
-.abs-center-y { position: absolute; @include sb-position-center }
+.abs          { position: absolute; }
+.abs-t        { position: absolute; @include sb-position-t; }
+.abs-t-l      { position: absolute; @include sb-position-t-l; }
+.abs-t-r      { position: absolute; @include sb-position-t-r; }
+.abs-b        { position: absolute; @include sb-position-b; }
+.abs-b-l      { position: absolute; @include sb-position-b-l; }
+.abs-b-r      { position: absolute; @include sb-position-b-r; }
+.abs-l        { position: absolute; @include sb-position-l; }
+.abs-r        { position: absolute; @include sb-position-r; }
+.abs-fit      { position: absolute; @include sb-position-fit; }
+.abs-center   { position: absolute; @include sb-position-center; }
+.abs-center-x { position: absolute; @include sb-position-center-x; }
+.abs-center-y { position: absolute; @include sb-position-center-y; }
 
-.fix          { position: fixed }
-.fix-t        { position: fixed; @include sb-position-t }
-.fix-t-l      { position: fixed; @include sb-position-t-l }
-.fix-t-r      { position: fixed; @include sb-position-t-r }
-.fix-b        { position: fixed; @include sb-position-b }
-.fix-b-l      { position: fixed; @include sb-position-b-l }
-.fix-b-r      { position: fixed; @include sb-position-b-r }
-.fix-l        { position: fixed; @include sb-position-l }
-.fix-r        { position: fixed; @include sb-position-r }
-.fix-fit      { position: fixed; @include sb-position-fit }
-.fix-center   { position: fixed; @include sb-position-center-x }
-.fix-center-x { position: fixed; @include sb-position-center-y }
-.fix-center-y { position: fixed; @include sb-position-center }
+.fix          { position: fixed; }
+.fix-t        { position: fixed; @include sb-position-t; }
+.fix-t-l      { position: fixed; @include sb-position-t-l; }
+.fix-t-r      { position: fixed; @include sb-position-t-r; }
+.fix-b        { position: fixed; @include sb-position-b; }
+.fix-b-l      { position: fixed; @include sb-position-b-l; }
+.fix-b-r      { position: fixed; @include sb-position-b-r; }
+.fix-l        { position: fixed; @include sb-position-l; }
+.fix-r        { position: fixed; @include sb-position-r; }
+.fix-fit      { position: fixed; @include sb-position-fit; }
+.fix-center   { position: fixed; @include sb-position-center; }
+.fix-center-x { position: fixed; @include sb-position-center-x; }
+.fix-center-y { position: fixed; @include sb-position-center-y; }
 
 /**
  * border-radius
  */
 
-.rounded     { border-radius: $sb-radius }
-.rounded-t   { border-radius: $sb-radius $sb-radius 0 0 }
-.rounded-t-l { border-radius: $sb-radius 0 0 0 }
-.rounded-t-r { border-radius: 0 $sb-radius 0 0 }
-.rounded-b   { border-radius: 0 0 $sb-radius $sb-radius }
-.rounded-b-l { border-radius: 0 0 0 $sb-radius }
-.rounded-b-r { border-radius: 0 0 $sb-radius 0 }
-.rounded-l   { border-radius: $sb-radius 0 0 $sb-radius }
-.rounded-r   { border-radius: 0 $sb-radius $sb-radius 0 }
+.rounded     { border-radius: $sb-radius; }
+.rounded-t   { border-radius: $sb-radius $sb-radius 0 0; }
+.rounded-t-l { border-radius: $sb-radius 0 0 0; }
+.rounded-t-r { border-radius: 0 $sb-radius 0 0; }
+.rounded-b   { border-radius: 0 0 $sb-radius $sb-radius; }
+.rounded-b-l { border-radius: 0 0 0 $sb-radius; }
+.rounded-b-r { border-radius: 0 0 $sb-radius 0; }
+.rounded-l   { border-radius: $sb-radius 0 0 $sb-radius; }
+.rounded-r   { border-radius: 0 $sb-radius $sb-radius 0; }
 
 /**
  * spacing
@@ -231,25 +231,25 @@
 @mixin sb-margin($val) {
   $size: sb-str-replace($val + '', '.', 'x');
 
-  .margin-#{$size}   { margin:        #{$val}rem }
-  .margin-t-#{$size} { margin-top:    #{$val}rem }
-  .margin-r-#{$size} { margin-right:  #{$val}rem }
-  .margin-b-#{$size} { margin-bottom: #{$val}rem }
-  .margin-l-#{$size} { margin-left:   #{$val}rem }
-  .margin-v-#{$size} { margin-top:    #{$val}rem; margin-bottom: #{$val}rem }
-  .margin-h-#{$size} { margin-left:   #{$val}rem; margin-right:  #{$val}rem }
+  .margin-#{$size}   { margin:        #{$val}rem; }
+  .margin-t-#{$size} { margin-top:    #{$val}rem; }
+  .margin-r-#{$size} { margin-right:  #{$val}rem; }
+  .margin-b-#{$size} { margin-bottom: #{$val}rem; }
+  .margin-l-#{$size} { margin-left:   #{$val}rem; }
+  .margin-v-#{$size} { margin-top:    #{$val}rem; margin-bottom: #{$val}rem; }
+  .margin-h-#{$size} { margin-left:   #{$val}rem; margin-right:  #{$val}rem; }
 }
 
 @mixin sb-padding($val) {
   $size: sb-str-replace($val + '', '.', 'x');
 
-  .padding-#{$size}   { padding:        #{$val}rem }
-  .padding-t-#{$size} { padding-top:    #{$val}rem }
-  .padding-r-#{$size} { padding-right:  #{$val}rem }
-  .padding-b-#{$size} { padding-bottom: #{$val}rem }
-  .padding-l-#{$size} { padding-left:   #{$val}rem }
-  .padding-v-#{$size} { padding-top:    #{$val}rem; padding-bottom: #{$val}rem }
-  .padding-h-#{$size} { padding-left:   #{$val}rem; padding-right:  #{$val}rem }
+  .padding-#{$size}   { padding:        #{$val}rem; }
+  .padding-t-#{$size} { padding-top:    #{$val}rem; }
+  .padding-r-#{$size} { padding-right:  #{$val}rem; }
+  .padding-b-#{$size} { padding-bottom: #{$val}rem; }
+  .padding-l-#{$size} { padding-left:   #{$val}rem; }
+  .padding-v-#{$size} { padding-top:    #{$val}rem; padding-bottom: #{$val}rem; }
+  .padding-h-#{$size} { padding-left:   #{$val}rem; padding-right:  #{$val}rem; }
 }
 
 @mixin sb-gaps($val) {
@@ -271,13 +271,13 @@
  */
 
 @mixin sb-edge($name, $color, $inset: null) {
-  .edge-#{sb-direction($inset)}-#{$name}   { box-shadow: #{sb-shadow-around($inset, $color)} }
-  .edge-#{sb-direction($inset)}-#{$name}-t { box-shadow: #{sb-shadow-top($inset, $color)} }
-  .edge-#{sb-direction($inset)}-#{$name}-b { box-shadow: #{sb-shadow-bottom($inset, $color)} }
-  .edge-#{sb-direction($inset)}-#{$name}-l { box-shadow: #{sb-shadow-left($inset, $color)} }
-  .edge-#{sb-direction($inset)}-#{$name}-r { box-shadow: #{sb-shadow-right($inset, $color)} }
+  .edge-#{sb-direction($inset)}-#{$name}   { box-shadow: #{sb-shadow-around($inset, $color)}; }
+  .edge-#{sb-direction($inset)}-#{$name}-t { box-shadow: #{sb-shadow-top($inset, $color)}; }
+  .edge-#{sb-direction($inset)}-#{$name}-b { box-shadow: #{sb-shadow-bottom($inset, $color)}; }
+  .edge-#{sb-direction($inset)}-#{$name}-l { box-shadow: #{sb-shadow-left($inset, $color)}; }
+  .edge-#{sb-direction($inset)}-#{$name}-r { box-shadow: #{sb-shadow-right($inset, $color)}; }
   .edge-#{sb-direction($inset)}-#{$name}-v { box-shadow: #{sb-shadow-top($inset, $color)},
-                                                         #{sb-shadow-bottom($inset, $color)} }
+                                                         #{sb-shadow-bottom($inset, $color)}; }
   .edge-#{sb-direction($inset)}-#{$name}-h { box-shadow: #{sb-shadow-left($inset, $color)},
-                                                         #{sb-shadow-right($inset, $color)} }
+                                                         #{sb-shadow-right($inset, $color)}; }
 }
