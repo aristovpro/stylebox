@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aristovn/stylebox.git"
+    "url": "git+https://github.com/aristovpro/stylebox.git"
   },
   "author": "Nikita Aristov <nikita.aristov@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/aristovn/stylebox/issues"
+    "url": "https://github.com/aristovpro/stylebox/issues"
   },
-  "homepage": "https://github.com/aristovn/stylebox#readme",
+  "homepage": "https://github.com/aristovpro/stylebox#readme",
   "devDependencies": {
     "babel-eslint": "^10.0.1",
     "browser-sync": "^2.26.5",
