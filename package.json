@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/aristovpro/stylebox/issues"
   },
-  "homepage": "https://github.com/aristovpro/stylebox#readme",
+  "homepage": "https://aristovpro.github.io/stylebox/",
   "devDependencies": {
     "babel-eslint": "^10.0.2",
     "browser-sync": "^2.26.7",
