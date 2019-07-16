@@ -19,13 +19,13 @@ const {md}              = require('./md')
 
 const SRC_DOC_TEMPLATE_DIR   = 'docs/templates'
 const SRC_DOC_TEMPLATE_FILES = 'docs/templates/**/*'
-const SRC_DOC_STATIC_FILES = 'docs/static/**/*'
-const SRC_DOC_STYLE_FILES  = 'docs/styles/**/*.scss'
-const SRC_DOC_STYLE_ENTRY  = 'docs/styles/docs.scss'
+const SRC_DOC_STATIC_FILES   = 'docs/static/**/*'
+const SRC_DOC_STYLE_FILES    = 'docs/styles/**/*.scss'
+const SRC_DOC_STYLE_ENTRY    = 'docs/styles/docs.scss'
 
-const OUT_DOC_DIR          = 'gh-pages'
+const OUT_DOC_DIR = 'gh-pages'
 
-const COMMIT               = cp.execSync('git rev-parse --short HEAD').toString().trim()
+const COMMIT = cp.execSync('git rev-parse --short HEAD').toString().trim()
 
 const PAGES = [
   {
