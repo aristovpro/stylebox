@@ -7,17 +7,11 @@
 const $                 = require('gulp-load-plugins')()
 const bs                = require('browser-sync')
 const cp                = require('child_process')
-const fs                = require('fs')
-const fsp               = require('fs-path')
 const del               = require('del')
 const gulp              = require('gulp')
-const {promisify}       = require('util')
+const {promises}        = require('fs')
 const {compileTemplate} = require('statil')
 const {md}              = require('./md')
-
-
-const readFile          = promisify(fs.readFile)
-const writeFile         = promisify(fsp.writeFile)
 
 /**
  * Globals
@@ -37,13 +31,12 @@ const PAGES = [
   {
     md: 'index.md',
     template: 'index.html',
-    outPath: 'index.html',
     lang: 'en',
   },
   {
     md: 'index_ru.md',
     template: 'index.html',
-    outPath: 'ru/index.html',
+    outPath: 'ru',
     lang: 'ru',
   },
 ]
@@ -75,17 +68,20 @@ gulp.task('docs:static:watch', () => {
 
 gulp.task('docs:templates:build', async () => {
   for (const page of PAGES) {
-    const mdInput = await readFile(`${SRC_DOC_TEMPLATE_DIR}/${page.md}`, 'utf8')
+    const mdInput = await promises.readFile(`${SRC_DOC_TEMPLATE_DIR}/${page.md}`, 'utf8')
     const mdOut = md(compileTemplate(mdInput)())
 
-    const pageInput  = await readFile(`${SRC_DOC_TEMPLATE_DIR}/${page.template}`, 'utf8')
+    const pageInput  = await promises.readFile(`${SRC_DOC_TEMPLATE_DIR}/${page.template}`, 'utf8')
     const pageOutput = compileTemplate(pageInput)({
       COMMIT,
       CONTENT: mdOut,
       LANG: page.lang,
     })
 
-    await writeFile(`${OUT_DOC_DIR}/${page.outPath}`, pageOutput)
+    const outPath = `${OUT_DOC_DIR}/${page.outPath || ''}`
+
+    await promises.mkdir(outPath, {recursive: true})
+    await promises.writeFile(`${outPath}/${page.template}`, pageOutput)
   }
 })
 
