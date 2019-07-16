@@ -96,9 +96,7 @@ gulp.task('docs:templates:watch', () => {
 gulp.task('docs:styles:build', () => (
   gulp.src(SRC_DOC_STYLE_ENTRY)
     .pipe($.sass())
-    .pipe($.autoprefixer({
-      browsers: ['> 1%', 'IE >= 10', 'iOS 7'],
-    }))
+    .pipe($.autoprefixer())
     .pipe($.cleanCss({
       keepSpecialComments: 0,
       aggressiveMerging: false,

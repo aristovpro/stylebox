@@ -16,6 +16,11 @@
     "url": "https://github.com/aristovpro/stylebox/issues"
   },
   "homepage": "https://aristovpro.github.io/stylebox/",
+  "browserslist": [
+    "> 1%",
+    "IE >= 10",
+    "iOS 7"
+  ],
   "devDependencies": {
     "babel-eslint": "^10.0.2",
     "browser-sync": "^2.26.7",
