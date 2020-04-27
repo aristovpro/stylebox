@@ -22,19 +22,19 @@
     "iOS 7"
   ],
   "devDependencies": {
-    "babel-eslint": "^10.0.2",
+    "babel-eslint": "^10.1.0",
     "browser-sync": "^2.26.7",
-    "del": "^5.0.0",
-    "eslint": "^6.0.1",
+    "del": "^5.1.0",
+    "eslint": "^6.8.0",
     "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^6.1.0",
-    "gulp-clean-css": "^4.2.0",
-    "gulp-load-plugins": "^2.0.0",
-    "gulp-sass": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-load-plugins": "^2.0.3",
+    "gulp-sass": "^4.1.0",
     "gulp-watch": "^5.0.1",
     "highlight": "^0.2.4",
     "highlight.js": "9.15.6",
-    "marked": "^0.6.3",
+    "marked": "^1.0.0",
     "statil": "^0.9.0"
   }
 }
