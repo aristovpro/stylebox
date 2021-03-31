@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<base href="/stylebox/">
+<title>stylebox</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link rel="stylesheet" href="docs.css?9064d4e">
+<link rel="icon" sizes="16x16" href="favicon-16x16.png" type="image/png">
+<link rel="icon" sizes="32x32" href="favicon-32x32.png" type="image/png">
+<link rel="icon" sizes="64x64" href="favicon-64x64.png" type="image/png">
+
+<body class="decorate-links">
+  <div class="row-start-stretch limit-width">
+    <aside class="col-start-stretch gaps-v-1x5 padding-h-1 padding-v-1x5 wspace-nowrap not-lg-hide">
+      <p>
+        <a href="https://github.com/aristovpro/stylebox" target="_blank">
+          Source on Github
+        </a>
+      </p>
+      <p><a href="#motivation">Motivation</a></p>
+      <div class="col-start-stretch gaps-v-0x5">
+        <p><a href="#atomic-classes">Atomic classes</a></p>
+        <p><a href="#helper-classes">Helper classes</a></p>
+      </div>
+    </aside>
+    <div class="flex-1 col-start-stretch gaps-v-1 padding-1" style="max-width: 100%;">
+      <p class="lg-hide">
+        <a href="https://github.com/aristovpro/stylebox" target="_blank">
+          Source on Github
+        </a>
+      </p>
+      <article class="fancy-typography">
+        <h2><a class="heading-anchor decorate-link" href="#about" id="about">#</a> About</h2>
+<p><strong>Stylebox</strong> — CSS библиотека, написанная на SCSS. Разработана для создания гибких и легко расширяемых веб-приложений, без необходимости написания большого количества стилей. Stylebox включает две основных концепции:</p>
+<ul>
+<li>Удобное построение разметки с помощью классов, основанных на <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox" target="_blank">Flexbox</a>;</li>
+<li>Наследование принципов Atomic CSS, подразумевающих использование классов, несущих минимальное количество CSS-свойств.</li>
+</ul>
+<h2><a class="heading-anchor decorate-link" href="#motivation" id="motivation">#</a> Motivation</h2>
+<p>Этот набор стилей получен из опыта разработки множества web-приложений. Он помогает сократить написание css-кода и позволяет максимально переиспользовать стили, что отлично сочетается с компонентами такого фреймворка, как React. Для лучшего понимания, давайте создадим простую карточку пользователя, используя Stylebox. Для начала создадим общую разметку без стилей:</p>
+<pre class="overflow-x-scroll"><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>Photo<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>User Name<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>@nickname<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<p>Добавим стили из Stylebox:</p>
+<pre class="overflow-x-scroll"><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;row-start-center gaps-h-0x5 padding-0x5&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;circle bg-cover&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;width: 2.5rem; background-image: url(images/photo.jpg);&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col-start-stretch&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>Winnie The Pooh<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>@winnie<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+<p>Результат:</p>
+<div class="row-start-center gaps-h-0x5">
+  <div class="circle bg-cover" style="width: 2.5rem; background-image: url(images/photo.jpg);"></div>
+  <div class="col-start-stretch">
+    <p><strong>Winnie The Pooh</strong></p>
+    <p>@winnie</p>
+  </div>
+</div>
+
+<hr>
+<h2><a class="heading-anchor decorate-link" href="#docs" id="docs">#</a> Docs</h2>
+<h3><a class="heading-anchor decorate-link" href="#atomic-classes" id="atomic-classes">#</a> Atomic classes</h3>
+<pre class="overflow-x-scroll"><code class="hljs language-css"><span class="hljs-selector-class">.relative</span>             { <span class="hljs-attribute">position</span>: relative }
+<span class="hljs-selector-class">.absolute</span>             { <span class="hljs-attribute">position</span>: absolute }
+<span class="hljs-selector-class">.static</span>               { <span class="hljs-attribute">position</span>: static }
+<span class="hljs-selector-class">.fixed</span>                { <span class="hljs-attribute">position</span>: fixed }
+<span class="hljs-selector-class">.block</span>                { <span class="hljs-attribute">display</span>: block }
+<span class="hljs-selector-class">.inline</span>               { <span class="hljs-attribute">display</span>: inline }
+<span class="hljs-selector-class">.inline-block</span>         { <span class="hljs-attribute">display</span>: inline-block }
+<span class="hljs-selector-class">.inline-table</span>         { <span class="hljs-attribute">display</span>: inline-table }
+<span class="hljs-selector-class">.table</span>                { <span class="hljs-attribute">display</span>: table }
+<span class="hljs-selector-class">.table-row</span>            { <span class="hljs-attribute">display</span>: table-row }
+<span class="hljs-selector-class">.table-column</span>         { <span class="hljs-attribute">display</span>: table-column }
+<span class="hljs-selector-class">.table-cell</span>           { <span class="hljs-attribute">display</span>: table-cell }
+<span class="hljs-selector-class">.flex</span>                 { <span class="hljs-attribute">display</span>: flex }
+<span class="hljs-selector-class">.float-none</span>           { <span class="hljs-attribute">float</span>: none }
+<span class="hljs-selector-class">.float-left</span>           { <span class="hljs-attribute">float</span>: left }
+<span class="hljs-selector-class">.float-right</span>          { <span class="hljs-attribute">float</span>: right }
+<span class="hljs-selector-class">.clear-none</span>           { <span class="hljs-attribute">clear</span>: none }
+<span class="hljs-selector-class">.clear-both</span>           { <span class="hljs-attribute">clear</span>: both }
+<span class="hljs-selector-class">.clear-left</span>           { <span class="hljs-attribute">clear</span>: left }
+<span class="hljs-selector-class">.clear-right</span>          { <span class="hljs-attribute">clear</span>: right }
+<span class="hljs-selector-class">.visibility-hidden</span>    { <span class="hljs-attribute">visibility</span>: hidden }
+<span class="hljs-selector-class">.visibility-visible</span>   { <span class="hljs-attribute">visibility</span>: visible }
+<span class="hljs-selector-class">.visibility-collapse</span>  { <span class="hljs-attribute">visibility</span>: collapse }
+<span class="hljs-selector-class">.table-fixed</span>          { <span class="hljs-attribute">table-layout</span>: fixed }
+<span class="hljs-selector-class">.valign-top</span>           { <span class="hljs-attribute">vertical-align</span>: top }
+<span class="hljs-selector-class">.valign-middle</span>        { <span class="hljs-attribute">vertical-align</span>: middle }
+<span class="hljs-selector-class">.valign-bottom</span>        { <span class="hljs-attribute">vertical-align</span>: bottom }
+<span class="hljs-selector-class">.valign-baseline</span>      { <span class="hljs-attribute">vertical-align</span>: baseline }
+<span class="hljs-selector-class">.text-left</span>            { <span class="hljs-attribute">text-align</span>: left }
+<span class="hljs-selector-class">.text-right</span>           { <span class="hljs-attribute">text-align</span>: right }
+<span class="hljs-selector-class">.text-center</span>          { <span class="hljs-attribute">text-align</span>: center }
+<span class="hljs-selector-class">.text-justify</span>         { <span class="hljs-attribute">text-align</span>: justify }
+<span class="hljs-selector-class">.text-decoration-none</span> { <span class="hljs-attribute">text-decoration</span>: none }
+<span class="hljs-selector-class">.text-overline</span>        { <span class="hljs-attribute">text-decoration</span>: overline }
+<span class="hljs-selector-class">.text-underline</span>       { <span class="hljs-attribute">text-decoration</span>: underline }
+<span class="hljs-selector-class">.text-line-through</span>    { <span class="hljs-attribute">text-decoration</span>: line-through }
+<span class="hljs-selector-class">.text-transform-none</span>  { <span class="hljs-attribute">text-transform</span>: none }
+<span class="hljs-selector-class">.text-uppercase</span>       { <span class="hljs-attribute">text-transform</span>: uppercase }
+<span class="hljs-selector-class">.text-lowercase</span>       { <span class="hljs-attribute">text-transform</span>: lowercase }
+<span class="hljs-selector-class">.text-capitalize</span>      { <span class="hljs-attribute">text-transform</span>: capitalize }
+<span class="hljs-selector-class">.weight-normal</span>        { <span class="hljs-attribute">font-weight</span>: normal }
+<span class="hljs-selector-class">.weight-bold</span>          { <span class="hljs-attribute">font-weight</span>: bold }
+<span class="hljs-selector-class">.weight-bolder</span>        { <span class="hljs-attribute">font-weight</span>: bolder }
+<span class="hljs-selector-class">.weight-lighter</span>       { <span class="hljs-attribute">font-weight</span>: lighter }
+<span class="hljs-selector-class">.font-style-normal</span>    { <span class="hljs-attribute">font-style</span>: normal }
+<span class="hljs-selector-class">.wspace-normal</span>        { <span class="hljs-attribute">white-space</span>: normal }
+<span class="hljs-selector-class">.wspace-nowrap</span>        { <span class="hljs-attribute">white-space</span>: nowrap }
+<span class="hljs-selector-class">.width-25p</span>            { <span class="hljs-attribute">width</span>: <span class="hljs-number">25%</span> }
+<span class="hljs-selector-class">.width-50p</span>            { <span class="hljs-attribute">width</span>: <span class="hljs-number">50%</span> }
+<span class="hljs-selector-class">.width-75p</span>            { <span class="hljs-attribute">width</span>: <span class="hljs-number">75%</span> }
+<span class="hljs-selector-class">.width-100p</span>           { <span class="hljs-attribute">width</span>: <span class="hljs-number">100%</span> }
+<span class="hljs-selector-class">.width-100vw</span>          { <span class="hljs-attribute">width</span>: <span class="hljs-number">100vw</span> }
+<span class="hljs-selector-class">.height-100p</span>          { <span class="hljs-attribute">height</span>: <span class="hljs-number">100%</span> }
+<span class="hljs-selector-class">.height-100vh</span>         { <span class="hljs-attribute">height</span>: <span class="hljs-number">100vh</span> }
+<span class="hljs-selector-class">.cursor-pointer</span>       { <span class="hljs-attribute">cursor</span>: pointer }
+<span class="hljs-selector-class">.pointer-events-none</span>  { <span class="hljs-attribute">pointer-events</span>: none }
+<span class="hljs-selector-class">.flex-1</span>               { <span class="hljs-attribute">flex</span>: <span class="hljs-number">1</span> }
+<span class="hljs-selector-class">.flex-wrap</span>            { <span class="hljs-attribute">flex-wrap</span>: wrap }
+<span class="hljs-selector-class">.flex-nowrap</span>          { <span class="hljs-attribute">flex-wrap</span>: nowrap }
+<span class="hljs-selector-class">.flex-shrink-none</span>     { <span class="hljs-attribute">flex-shrink</span>: <span class="hljs-number">0</span> }
+<span class="hljs-selector-class">.overflow-hidden</span>      { <span class="hljs-attribute">overflow</span>: hidden }</code></pre>
+<h3><a class="heading-anchor decorate-link" href="#helper-classes" id="helper-classes">#</a> Helper classes</h3>
+<pre class="overflow-x-scroll"><code class="hljs language-scss">.<span class="hljs-selector-attr">[col|row]</span>-<span class="hljs-selector-attr">[start|center|end|around|between]</span>-<span class="hljs-selector-attr">[start|center|end|stretch]</span></code></pre>
+<p>Классы основанные на <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox" target="_blank">Flexbox</a>. Добавляются на родительский элемент и задают поток дочерних. Первый параметр задает направление, второй выравнивание по основной оси, третий выравнивание по второстепенной.</p>
+<hr>
+<pre class="overflow-x-scroll"><code class="hljs language-scss">.<span class="hljs-selector-attr">[abs|fix]</span>
+.<span class="hljs-selector-attr">[abs|fix]</span>-<span class="hljs-selector-attr">[t|b|l|r]</span>
+.<span class="hljs-selector-attr">[abs|fix]</span>-<span class="hljs-selector-attr">[t|b]</span>-<span class="hljs-selector-attr">[l|r]</span>
+.<span class="hljs-selector-attr">[abs|fix]</span>-fit
+.<span class="hljs-selector-attr">[abs|fix]</span>-center
+.<span class="hljs-selector-attr">[abs|fix]</span>-center-<span class="hljs-selector-attr">[x|y]</span></code></pre>
+<p>Классы для абсолютного и фиксированного позиционирования. Классы с суффиксом <code>fit</code> растягивают элемент на всю ширину и высоту родительского.</p>
+<hr>
+<pre class="overflow-x-scroll"><code class="hljs language-scss"><span class="hljs-variable">$sb-radius</span>: <span class="hljs-number">3px</span> !default;
+
+<span class="hljs-selector-class">.rounded</span>
+<span class="hljs-selector-class">.rounded-</span><span class="hljs-selector-attr">[t|b|l|r]</span>
+<span class="hljs-selector-class">.rounded-</span><span class="hljs-selector-attr">[t|b]</span>-<span class="hljs-selector-attr">[l|r]</span></code></pre>
+<p>Классы для скругления углов. Можно поменять стандартное значение переменной.</p>
+<hr>
+<pre class="overflow-x-scroll"><code class="hljs language-scss"><span class="hljs-variable">$sb-space-start</span>: <span class="hljs-number">0</span>    !default;
+<span class="hljs-variable">$sb-space-end</span>:   <span class="hljs-number">8</span>    !default;
+<span class="hljs-variable">$sb-space-step</span>:  <span class="hljs-number">0.25</span> !default;
+
+<span class="hljs-selector-class">.margin-</span><span class="hljs-selector-attr">[$VALUE]</span>
+<span class="hljs-selector-class">.margin-</span><span class="hljs-selector-attr">[t|b|l|r|v|h]</span>-<span class="hljs-selector-attr">[$VALUE]</span>
+<span class="hljs-selector-class">.padding-</span><span class="hljs-selector-attr">[$VALUE]</span>
+<span class="hljs-selector-class">.padding-</span><span class="hljs-selector-attr">[t|b|l|r|v|h]</span>-<span class="hljs-selector-attr">[$VALUE]</span>
+<span class="hljs-selector-class">.gaps-</span><span class="hljs-selector-attr">[v|h]</span>-<span class="hljs-selector-attr">[$VALUE]</span></code></pre>
+<p>Классы для задания отступов. С помощью переменных можно изменить диапазон значений. Единица измерений <code>rem</code>. В дробных значениях точка заменяется на <code>x</code>, например <code>.margin-v-1x25</code>. Классы <code>.gaps</code> добавляются на родительский тег, задавая отступы между дочерними элементами.</p>
+<hr>
+<pre class="overflow-x-scroll"><code class="hljs language-css"><span class="hljs-selector-class">.overflow-x-scroll</span></code></pre>
+<p>Добавляет скроллбар по оси <code>x</code>, но скрывает по оси <code>y</code>.</p>
+<hr>
+<pre class="overflow-x-scroll"><code class="hljs language-css"><span class="hljs-selector-class">.overflow-y-scroll</span></code></pre>
+<p>Добавляет скроллбар по оси <code>y</code>, но скрывает по оси <code>x</code>.</p>
+<hr>
+<pre class="overflow-x-scroll"><code class="hljs language-css"><span class="hljs-selector-class">.text-ellipsis</span></code></pre>
+<p>Обрезает текстового строку выходящую за границы родительского тега.</p>
+<hr>
+<pre class="overflow-x-scroll"><code class="hljs language-css"><span class="hljs-selector-class">.square</span></code></pre>
+<p>Создает квадрат, используя псевдокласс <code>::before</code>.
+Размер регулируется свойством <code>width</code>.</p>
+<hr>
+<pre class="overflow-x-scroll"><code class="hljs language-css"><span class="hljs-selector-class">.circle</span></code></pre>
+<p>Как <code>.square</code>, но скругляет углы на 50%.</p>
+<hr>
+<pre class="overflow-x-scroll"><code class="hljs language-css"><span class="hljs-selector-class">.bg-cover</span></code></pre>
+<p>Класс задает комбинацию свойств, для задания <code>background-image</code> как обложки.</p>
+<hr>
+<pre class="overflow-x-scroll"><code class="hljs language-css"><span class="hljs-selector-class">.bg-contain</span></code></pre>
+<p>Класс задает комбинацию свойств, для вписания <code>background-image</code> по большей стороне.</p>
+<hr>
+<pre class="overflow-x-scroll"><code class="hljs language-css"><span class="hljs-selector-class">.stretch-to-viewport</span></code></pre>
+<p>Комбинация хелпера <code>.col-start-stretch</code> и свойства <code>min-height: 100vh</code>.</p>
+<hr>
+<pre class="overflow-x-scroll"><code class="hljs language-css"><span class="hljs-selector-class">.block-100p</span></code></pre>
+<p>Комбинация атомов <code>.block</code> и <code>.width-100p</code>.</p>
+
+      </article>
+    </div>
+  </div>
+</body>
