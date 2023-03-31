@@ -12,6 +12,7 @@ const gulp              = require('gulp')
 const {promises}        = require('fs')
 const {compileTemplate} = require('statil')
 const {md}              = require('./md')
+const sass              = require('sass')
 
 /**
  * Globals
@@ -95,7 +96,7 @@ gulp.task('docs:templates:watch', () => {
 
 gulp.task('docs:styles:build', () => (
   gulp.src(SRC_DOC_STYLE_ENTRY)
-    .pipe($.sass())
+    .pipe($.sass(sass)())
     .pipe($.autoprefixer())
     .pipe($.cleanCss({
       keepSpecialComments: 0,
