@@ -7,7 +7,6 @@
 const $                 = require('gulp-load-plugins')()
 const bs                = require('browser-sync')
 const cp                = require('child_process')
-const del               = require('del')
 const gulp              = require('gulp')
 const {promises}        = require('fs')
 const {compileTemplate} = require('statil')
@@ -48,7 +47,7 @@ const PAGES = [
 
 gulp.task('clear', () => (
   // Skips dotfiles like `.git` and `.gitignore`
-  del(`${OUT_DOC_DIR}/*`).catch(console.error.bind(console))
+  import('del').then(({deleteAsync}) => deleteAsync(`${OUT_DOC_DIR}/*`).catch(console.error.bind(console)))
 ))
 
 /**
